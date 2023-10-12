@@ -1,0 +1,54 @@
+<%- include("header") -%>
+
+<div>
+    <h1>Crown Section</h1>
+
+    <!-- THIS WORKS!!!!!!!!!!!!!!!!!! It actually gets all the info from ATLAS!!!!! -->
+    <% for (var i = 0; i < schools.length; i++) { %>
+        <% if (schools[i].section === 0 && schools[i].approved === true) { %>
+            <table>
+                <tr>
+                    <td class="td-heading">Board</td>
+                    <td class="td-heading">Player Name</td>
+                    <td class="td-heading">Rating</td>
+                    <td class="td-heading">CFC ID</td>
+                </tr>
+                <th><%= schools[i].name %></th>
+                <% for (var j = 0; j < 4; j++) { %>
+                <tr>
+                    <td>Board <%= j+1 %></td>
+                    <td><%= schools[i].players[j].name %></td>
+                    <td><%= schools[i].players[j].rating %></td>
+                    <td><%= schools[i].players[j].cfcID %></td>
+                </tr>
+                <% } %>
+            </table>
+        <% } %>
+    <% } %>
+
+    <h1>Reserve Section</h1>
+
+    <% for (var i = 0; i < schools.length; i++) { %>
+        <% if (schools[i].section === 1 && schools[i].approved === true) { %>
+            <table>
+                <tr>
+                    <td class="td-heading">Board</td>
+                    <td class="td-heading">Player Name</td>
+                    <td class="td-heading">Rating</td>
+                    <td class="td-heading">CFC ID</td>
+                </tr>
+                <th><%= schools[i].name %></th>
+                <% for (var j = 0; j < 4; j++) { %>
+                <tr>
+                    <td>Board <%= j+1 %></td>
+                    <td><%= schools[i].players[j].name %></td>
+                    <td><%= schools[i].players[j].rating %></td>
+                    <td><%= schools[i].players[j].cfcID %></td>
+                </tr>
+                <% } %>
+            </table>
+        <% } %>
+    <% } %>
+</div>
+
+<%- include("footer") -%>
