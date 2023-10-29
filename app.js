@@ -139,7 +139,7 @@ app.get("/", function(req, res) {
       if (results.length === 0) {
         schoolTest.save();
       }
-      console.log(results);
+      // console.log(results);
       res.render("teams", {schools: results});
     })
     .catch(function(err) {
@@ -182,7 +182,7 @@ app.get("/signup", function(req, res){
 });
 
 app.post("/signup", function(req,res) {
-  console.log(req.body.teamName);
+  // console.log(req.body.teamName);
 
   const player1 = new Player({
     name: req.body.player1Name,
@@ -227,7 +227,7 @@ app.post("/signup", function(req,res) {
 });
 
 app.get("/home", function(req, res) {
-  res.render("home");
+  res.render("homeStrap");
 });
 
 let port = process.env.PORT;
