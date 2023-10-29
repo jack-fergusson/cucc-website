@@ -2,3 +2,16 @@
 body {
   padding-top: 3.5rem;
 }
+
+img {
+  height: 225px;
+  float: left;
+  width: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 3.5rem !important;
+  }
+}

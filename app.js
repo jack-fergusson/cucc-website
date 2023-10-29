@@ -56,16 +56,6 @@ const schoolSchema = {
   approved: Boolean
 }
 
-// Item is an object hence capital I.
-// call mongoose method model with singular 
-// name and schema to create a new model.
-// This is all pretty standard OOP but
-// with permanence thanks to 'goose
-// const Item = mongoose.model(
-//   "Item",
-//   itemsSchema
-// );
-
 const Player = mongoose.model(
   "Player",
   playerSchema
@@ -76,60 +66,12 @@ const School = mongoose.model(
   schoolSchema
 );
 
-// const player1 = new Player ({
-//   name: "Jack Fergusson",
-//   rating: 1700,
-//   cfcID: 1345
-// });
-
-// const player2 = new Player ({
-//   name: "Jordan Capello",
-//   rating: 200,
-//   cfcID: 3084
-// });
-
-// const player3 = new Player ({
-//   name: "Dennis Tran",
-//   rating: 1900,
-//   cfcID: 3490
-// });
-
-// const player4 = new Player ({
-//   name: "Elkan Fok",
-//   rating: 2800,
-//   cfcID: 5932
-// });
-
-// const playerList = [player1, player2, player3, player4];
-
-// const schoolTest = new School({
-//   name: "Queen's University",
-//   section: 0,
-//   players: playerList,
-//   approved: 1,
-// });
-
-// once all the items are created and grouped into
-// an array, they must all be inserted into db
-// MUST USE EXACTLY THIS SYNTAX!!!!!!
-// THEN CATCH.
-// you can now use the mongo shell (mongosh) to
-// see the added items.
-// (Maybe?) wrapping insertMany in an async function so that
-// I can await the insertion before moving on.
-// The anonymous function is immediately called.
-// (async function() {
-//   await Item.insertMany(defaultItems)
-//     .then(function() {
-//       console.log("Success!");
-//     })
-//     .catch(function(err) { 
-//       console.log(err);
-//     });
-//   })();
-
 
 app.get("/", function(req, res) {
+  res.redirect("/home");
+})
+
+app.get("/home", function(req, res) {
 
   // THIS is the syntax to find items in a 
   // collection. Must use .exec() in order
@@ -140,45 +82,15 @@ app.get("/", function(req, res) {
         schoolTest.save();
       }
       // console.log(results);
-      res.render("teams", {schools: results});
+      res.render("homeStrap", {schools: results});
     })
     .catch(function(err) {
       console.log(err);
     });
 });
 
-app.post("/apply", function(req, res){
-
-  // const itemName = req.body.newItem;
-  // // requesting the NAME of the button (list)
-  // // gives you the VALUE of the button (listTitle)
-  // const listName = req.body.list;
-
-  // const item = new Item({
-  //   name: itemName,
-  // });
-
-  // if (listName === "Today") {
-  //   item.save();
-  //   res.redirect("/");
-  // } else {
-  //   List.findOne({name: listName}).exec()
-  //     .then(function(foundList){
-  //       // can only use save() on something that
-  //       // is a mongoose model.
-  //       foundList.items.push(item);
-  //       foundList.save();
-  //       res.redirect("/" + listName);
-  //     })
-  //     .catch(function(err){
-  //       console.log(err);
-  //     });
-  // }
-
-});
-
 app.get("/signup", function(req, res){
-  res.render("signup");
+  res.render("signupStrap");
 });
 
 app.post("/signup", function(req,res) {
@@ -224,10 +136,6 @@ app.post("/signup", function(req,res) {
 
    res.redirect("/");
 
-});
-
-app.get("/home", function(req, res) {
-  res.render("homeStrap");
 });
 
 let port = process.env.PORT;

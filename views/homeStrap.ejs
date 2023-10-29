@@ -14,10 +14,10 @@
         use the ejs formatting to reference the files. Not full path.
      -->
 
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/jumbotron.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/bootstrap-social.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/jumbotron.css" rel="stylesheet">
 
   </head>
 
@@ -35,24 +35,9 @@
             <a class="nav-link" href="/home">Home <!--<span class="sr-only">(current)</span>--></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/">Teams</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="/signup">Sign Up</a>
           </li>
-          <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li> -->
         </ul>
-        <!-- <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form> -->
       </div>
     </nav>
 
@@ -61,36 +46,130 @@
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
         <div class="container">
-          <h1 class="display-3">Canadian University Chess Championships 2024</h1>
+          <h1 class="display-3">Canadian University Chess Championship 2024</h1>
           <p>Hosted by Queen's University Chess Club</p>
-          <!-- <p><a class="btn btn-primary btn-lg" href="/signup" role="button">Sign Up &raquo;</a></p> -->
         </div>
       </div>
 
+        <hr>
+
+      </div>
+
+    
       <div class="container">
         <!-- Example row of columns -->
         <div class="row">
           <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            <div class="card mb-4 shadow-sm">
+                <img 
+                    src="images/ontarioHall.jpg"
+                    alt="Ontario hall in Kinston, Ontario"
+                    >
+                <div class="card-body">
+                  <p class="card-text">
+                    WHEN: January XX - XX, 2024<br>
+                    WHERE: 67 University Ave, Kingston, ON<br>
+                    <br>
+                  </p>
+                </div>
+              </div>
+        </div>
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img 
+                    src="images/chess.avif"
+                    alt="Hand reaching for chess piece"
+                    >
+                <div class="card-body">
+                    <p class="card-text">
+                        5 Rounds of CFC Rated 90|30<br>
+                        Saturday: XX:XX, XX:XX, XX:XX<br>
+                        Sunday: XX:XX, XX:XX, XX:XX<br>
+                    </p>
+                </div>
+              </div>
           </div>
           <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-          </div>
-          <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            <div class="card mb-4 shadow-sm">
+                <img 
+                    src="images/bughouse.jpg"
+                    alt="people playing chess in a bar"
+                    >
+                <div class="card-body">
+                    <p class="card-text">
+                        Optional BugHouse tournament Friday<br>
+                        Details TBA<br>
+                        <br>
+                    </p>
+                </div>
+              </div>
           </div>
         </div>
 
         <hr>
 
-      </div> <!-- /container -->
+        <!-- TABLE OF REGISTERED TEAMS -->
 
+    
+      <h2>Registered Teams</h2><br>
+      <h4>Crown Section</h4>
+      <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Board</th>
+                <th scope="col">Name</th>
+                <th scope="col">Rating</th>
+                <th scope="col">CFC ID</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% for (var i = 0; i < schools.length; i++) { %>
+            <% if (schools[i].section === 0 && schools[i].approved === true) { %>
+                <th scope="row"><%= schools[i].name %></th>
+                <% for (var j = 0; j < 4; j++) { %>
+                    <tr>
+                        <td><%= j+1 %></td>
+                        <td><%= schools[i].players[j].name %></td>
+                        <td><%= schools[i].players[j].rating %></td>
+                        <td><%= schools[i].players[j].cfcID %></td>
+                    </tr>
+                <% } %>
+            <% } %>
+        <% } %>
+        </tbody>
+      </table>
+
+      <br>
+      <h4>Reserve Section</h4>
+      <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Board</th>
+                <th scope="col">Name</th>
+                <th scope="col">Rating</th>
+                <th scope="col">CFC ID</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% for (var i = 0; i < schools.length; i++) { %>
+            <% if (schools[i].section === 1 && schools[i].approved === true) { %>
+                <th scope="row"><%= schools[i].name %></th>
+                <% for (var j = 0; j < 4; j++) { %>
+                    <tr>
+                        <td><%= j+1 %></td>
+                        <td><%= schools[i].players[j].name %></td>
+                        <td><%= schools[i].players[j].rating %></td>
+                        <td><%= schools[i].players[j].cfcID %></td>
+                    </tr>
+                <% } %>
+            <% } %>
+        <% } %>
+        </tbody>
+      </table>
+      <br>
+      <hr>
+
+    </div>
     </main>
 
     <footer class="container">
