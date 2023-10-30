@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+    <link rel="icon" href="images/ChessLogo.ico">
 
-    <title>Jumbotron Template for Bootstrap</title>
+    <title>CUCC 2024</title>
 
     <!-- 
         All CSS files must be in the public/css folder
@@ -25,11 +25,11 @@
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <a class="navbar-brand" href="/home">CUCC 2024</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
+      </button> -->
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <div id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="/home">Home <!--<span class="sr-only">(current)</span>--></a>
@@ -126,7 +126,7 @@
         <% for (var i = 0; i < schools.length; i++) { %>
             <% if (schools[i].section === 0 && schools[i].approved === true) { %>
                 <th scope="row"><%= schools[i].name %></th>
-                <% for (var j = 0; j < 4; j++) { %>
+                <% for (var j = 0; j < schools[i].players.length - 1; j++) { %>
                     <tr>
                         <td><%= j+1 %></td>
                         <td><%= schools[i].players[j].name %></td>
@@ -154,7 +154,7 @@
         <% for (var i = 0; i < schools.length; i++) { %>
             <% if (schools[i].section === 1 && schools[i].approved === true) { %>
                 <th scope="row"><%= schools[i].name %></th>
-                <% for (var j = 0; j < 4; j++) { %>
+                <% for (var j = 0; j < schools[i].players.length - 1; j++) { %>
                     <tr>
                         <td><%= j+1 %></td>
                         <td><%= schools[i].players[j].name %></td>

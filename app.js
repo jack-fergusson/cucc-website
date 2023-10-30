@@ -78,9 +78,6 @@ app.get("/home", function(req, res) {
   // to apply a then catch structure.
   School.find({}).exec()
     .then(function(results) {
-      if (results.length === 0) {
-        schoolTest.save();
-      }
       // console.log(results);
       res.render("homeStrap", {schools: results});
     })
@@ -120,21 +117,41 @@ app.post("/signup", function(req,res) {
     cfcID: Number(req.body.player4ID),
   });
 
-  const playersList = [player1, player2, player3, player4];
+  if (req.body.player5Name != null) {
+    const player5 = new Player({
+      name: req.body.player5Name,
+      rating: Number(req.body.player5Rating),
+      cfcID: Number(req.body.player5ID),
+    });
+    var playersList = [player1, player2, player3, player4, player5];
+  }
+  else {
+    var playersList = [player1, player2, player3, player4];
+  }
 
   // returns 1 or 0 based on radio selection
   // console.log(req.body.teamSection);
 
+  var avgRating = (player1.rating + player2.rating + player3.rating + player4.rating) / 4;
+
+  var teamSection = 1;
+
+  if (avgRating >= 1800) {
+    var teamSection = 0;
+  }
+
   const school = new School({
     name: req.body.teamName,
-    section: req.body.teamSection,
+    section: teamSection,
     players: playersList,
     approved: 0,
-   });
+  });
 
-   school.save();
+  if (school.name) {
+    school.save();
+  }
 
-   res.redirect("/");
+  res.redirect("/");
 
 });
 

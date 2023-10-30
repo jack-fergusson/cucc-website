@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+    <link rel="icon" href="images/ChessLogo.ico">
 
-    <title>Jumbotron Template for Bootstrap</title>
+    <title>CUCC 2024</title>
 
     <!-- 
         All CSS files must be in the public/css folder
@@ -25,11 +25,8 @@
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <a class="navbar-brand" href="/home">CUCC 2024</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <div id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a class="nav-link" href="/home">Home </a>
@@ -42,14 +39,116 @@
     </nav>
 
     <main role="main">
+        <br>
+        <div class="container">
+            <form action="/signup" method="post">
+                <div class="form-group">
+                    <label for="teamName">Team Name</label>
+                    <input type="text" class="form-control" id="teamName" name="teamName" placeholder="Queen's University A">
+                </div>
 
 
+                <label style="font-weight: bold;">Board 1</label><br>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="player1Name">Name</label><br>
+                        <input type="text" id="player1Name" name="player1Name" class="form-control">
+                    </div>
+                    <div class="col">
+                        <label for="player1Rating">CFC Rating</label><br>
+                        <input type="text" id="player1Rating" name="player1Rating" class="form-control">
+                    </div>
+                    <div class="col">
+                        <label for="player1ID">CFC ID</label><br>
+                        <input type="text" id="player1ID" name="player1ID" class="form-control">
+                    </div>
+                </div>
+                <br>
 
+                <label style="font-weight: bold;">Board 2</label><br>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="player2Name">Name</label><br>
+                        <input type="text" id="player2Name" name="player2Name" class="form-control">
+                    </div>
+                    <div class="col">
+                        <label for="player2Rating">CFC Rating</label><br>
+                        <input type="text" id="player2Rating" name="player2Rating" class="form-control">
+                    </div>
+                    <div class="col">
+                        <label for="player2ID">CFC ID</label><br>
+                        <input type="text" id="player2ID" name="player2ID" class="form-control">
+                    </div>
+                </div>
+                <br>
+
+                <label style="font-weight: bold;">Board 3</label><br>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="player3Name">Name</label><br>
+                        <input type="text" id="player3Name" name="player3Name" class="form-control">
+                    </div>
+                    <div class="col">
+                        <label for="player3Rating">CFC Rating</label><br>
+                        <input type="text" id="player3Rating" name="player3Rating" class="form-control">
+                    </div>
+                    <div class="col">
+                        <label for="player3ID">CFC ID</label><br>
+                        <input type="text" id="player3ID" name="player3ID" class="form-control">
+                    </div>
+                </div>
+                <br>
+
+                <label style="font-weight: bold;">Board 4</label><br>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="player4Name">Name</label><br>
+                        <input type="text" id="player4Name" name="player4Name" class="form-control">
+                    </div>
+                    <div class="col">
+                        <label for="player4Rating">CFC Rating</label><br>
+                        <input type="text" id="player4Rating" name="player4Rating" class="form-control">
+                    </div>
+                    <div class="col">
+                        <label for="player4ID">CFC ID</label><br>
+                        <input type="text" id="player4ID" name="player4ID" class="form-control">
+                    </div>
+                </div>
+                <br>
+
+                <label style="font-weight: bold;">Board 5 (Optional Sub)</label><br>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="player5Name">Name</label><br>
+                        <input type="text" id="player5Name" name="player5Name" class="form-control">
+                    </div>
+                    <div class="col">
+                        <label for="player5Rating">CFC Rating</label><br>
+                        <input type="text" id="player5Rating" name="player5Rating" class="form-control">
+                    </div>
+                    <div class="col">
+                        <label for="player5ID">CFC ID</label><br>
+                        <input type="text" id="player5ID" name="player5ID" class="form-control">
+                    </div>
+                </div>
+                <br>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+                <br><br>
+                <p class="message">
+                    After submitting this form, please send $XXX to QueensChess@Outlook.ca<br>
+                    to complete your registration. Your team will be added to the home <br>
+                    page as soon as your application is approved. Good luck!<br>
+                </p>
+
+        </div>
 
 
     </main>
 
     <footer class="container">
+        <br>
       <p>&copy; Queen's University Chess Club 2023</p>
     </footer>
 
