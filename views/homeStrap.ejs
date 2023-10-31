@@ -132,7 +132,12 @@
                 <% for (var j = 0; j < schools[i].players.length - 1; j++) { %>
                     <tr>
                         <td><%= j+1 %></td>
-                        <td><%= schools[i].players[j].name %></td>
+                        <td>
+                            <%= schools[i].players[j].name %>
+                            <% if ((schools[i].captain - 1) == j) { %>
+                                 (Captain)
+                            <% } %>
+                        </td>
                         <td><%= schools[i].players[j].rating %></td>
                         <td><%= schools[i].players[j].cfcID %></td>
                     </tr>
@@ -160,7 +165,12 @@
                 <% for (var j = 0; j < schools[i].players.length - 1; j++) { %>
                     <tr>
                         <td><%= j+1 %></td>
-                        <td><%= schools[i].players[j].name %></td>
+                        <td>
+                            <%= schools[i].players[j].name %>
+                            <% if ((schools[i].captain - 1) == j) { %>
+                                (Captain)
+                           <% } %>
+                        </td>
                         <td><%= schools[i].players[j].rating %></td>
                         <td><%= schools[i].players[j].cfcID %></td>
                     </tr>

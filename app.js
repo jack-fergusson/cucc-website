@@ -53,7 +53,8 @@ const schoolSchema = {
   name: String,
   players: [playerSchema],
   section: Number,
-  approved: Boolean
+  approved: Boolean,
+  captain: Number,
 }
 
 const Player = mongoose.model(
@@ -130,24 +131,27 @@ app.post("/signup", function(req,res) {
   }
 
   // returns 1 or 0 based on radio selection
-  // console.log(req.body.teamSection);
+  // console.log(req.body.section);
 
-  var avgRating = (player1.rating + player2.rating + player3.rating + player4.rating) / 4;
+  // var avgRating = (player1.rating + player2.rating + player3.rating + player4.rating) / 4;
 
-  var teamSection = 1;
+  // var teamSection = 1;
 
-  if (avgRating >= 1800) {
-    var teamSection = 0;
-  }
+  // if (avgRating >= 1800) {
+  //   var teamSection = 0;
+  // }
+
+  console.log(req.body.captain);
 
   const school = new School({
     name: req.body.teamName,
-    section: teamSection,
+    section: req.body.section,
     players: playersList,
     approved: 0,
+    captain: req.body.captain,
   });
 
-  if (school.name) {
+  if (school.name != "") {
     school.save();
   }
 
