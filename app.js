@@ -159,6 +159,11 @@ app.post("/signup", function(req,res) {
 
 });
 
+// Allow robots.txt file to be accessed by googlebot
+app.get("/robots.txt", function(req, res){
+  res.sendFile(path.resolve("/public/robots.txt"));
+});
+
 let port = process.env.PORT;
 if (port == null || port == "") {
   port = 3000;
