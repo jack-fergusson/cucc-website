@@ -1,5 +1,6 @@
 //jshint esversion:6
 
+// require statements for each necessary node package
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -7,8 +8,10 @@ const _ = require("lodash");
 const { MongoClient, ServerApiVersion } = require('mongodb');
 require("dotenv").config();
 
+// initialize the app
 const app = express();
 
+// set the view engine and licate the views folder
 app.set('view engine', 'ejs');
 app.set('views', (__dirname + '/views'));
 
@@ -39,6 +42,7 @@ async function run() {
 }
 run().catch(console.dir);
 
+// connect using the uri. Private key
 mongoose.connect(uri);
 
 // schema for a single player on a team
@@ -80,7 +84,8 @@ app.get("/home", function(req, res) {
   // to apply a then catch structure.
   School.find({}).exec()
     .then(function(results) {
-      // console.log(results);
+      // render the homestrap ejs page, passing in the
+      // results of the database query
       res.render("homeStrap", {schools: results});
     })
     .catch(function(err) {
@@ -89,12 +94,14 @@ app.get("/home", function(req, res) {
 });
 
 app.get("/signup", function(req, res){
+  // render the signupStrap ejs page
   res.render("signupStrap");
 });
 
 app.post("/signup", function(req,res) {
   // console.log(req.body.teamName);
 
+  // create a new instance of Player based on results of the form
   const player1 = new Player({
     name: req.body.player1Name,
     rating: Number(req.body.player1Rating),
@@ -142,8 +149,9 @@ app.post("/signup", function(req,res) {
   //   var teamSection = 0;
   // }
 
-  console.log(req.body.captain);
+  // console.log(req.body.captain);
 
+  // create an instance of School using info from form
   const school = new School({
     name: req.body.teamName,
     section: req.body.section,
@@ -152,15 +160,18 @@ app.post("/signup", function(req,res) {
     captain: req.body.captain,
   });
 
+  // the slightest of input checking hahahaha
   if (school.name != "") {
     school.save();
   }
 
+  // redirect to home
   res.redirect("/");
 
 });
 
 // Allow robots.txt file to be accessed by googlebot
+// necessary for hosting online
 app.get("/robots.txt", function(req, res){
   res.sendFile(__dirname + "/robots.txt");
 });
