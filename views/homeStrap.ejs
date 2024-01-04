@@ -131,7 +131,8 @@
         <% for (var i = 0; i < schools.length; i++) { %>
             <% if (schools[i].section === 0 && schools[i].approved === true) { %>
                 <th scope="row"><%= schools[i].name %></th>
-                <% for (var j = 0; j < schools[i].players.length - 1; j++) { %>
+                <% for (var j = 0; j < 5; j++) { %>
+                  <% if (schools[i].players[j].name != '') { %>
                     <tr>
                         <td><%= j+1 %></td>
                         <td>
@@ -143,6 +144,7 @@
                         <td><%= schools[i].players[j].rating %></td>
                         <td><%= schools[i].players[j].cfcID %></td>
                     </tr>
+                  <% } %>
                 <% } %>
             <% } %>
         <% } %>
@@ -164,7 +166,8 @@
         <% for (var i = 0; i < schools.length; i++) { %>
             <% if (schools[i].section === 1 && schools[i].approved === true) { %>
                 <th scope="row"><%= schools[i].name %></th>
-                <% for (var j = 0; j < schools[i].players.length - 1; j++) { %>
+                <% for (var j = 0; j < 5; j++) { %>
+                  <% if (schools[i].players[j].name != '') { %>
                     <tr>
                         <td><%= j+1 %></td>
                         <td>
@@ -176,6 +179,7 @@
                         <td><%= schools[i].players[j].rating %></td>
                         <td><%= schools[i].players[j].cfcID %></td>
                     </tr>
+                  <% } %>
                 <% } %>
             <% } %>
         <% } %>
