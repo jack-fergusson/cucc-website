@@ -93,6 +93,11 @@ app.get("/home", function(req, res) {
     });
 });
 
+app.get("/base", function(req, res) {
+  //render the signupStrap ejs page
+  res.render("jaesonHome");
+});
+
 app.get("/signup", function(req, res){
   // render the signupStrap ejs page
   res.render("signupStrap");
