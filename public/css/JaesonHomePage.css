@@ -1,0 +1,97 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+
+.header {
+    height: 80px;
+    width: max-width;
+    background-color: red;
+    text-align:left;
+    line-height: 80px;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    
+}
+
+
+.Carousel {
+    text-align: center;
+    height: 500 px;
+    line-height: 500px;
+}
+
+.Welcome-Text {
+    text-align: center;
+    font-size: 50pt;
+    height: 200px;
+    line-height: 200px;
+}
+
+.hr1 {
+    width: max-width;
+    height: 10px;
+    background-color: yellow;
+}
+
+
+.flex-container {
+    width: 100%;
+    justify-content: center;
+}
+
+.hr2 {
+    width: 50%;
+}
+
+
+
+.container{
+    border: 0px;
+    margin: 0px auto;
+    width:400px;
+    height:400px;
+    background-color:#fff;
+    display:grid;
+    grid-template-columns: 200px 200px;
+    
+    
+    .boxA{
+      background-color:orange;
+      padding: 0;
+      color:black;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:40px;
+      font-family:sans-serif;
+    }
+    .boxB{
+        background-color:red;
+        padding: 0;
+        color:black;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:40px;
+        font-family:sans-serif;
+      }
+
+
+  
+  }
+
+.newsTitle {
+    text-align: center;
+    font-size: 40pt;
+}
+
+.newsBulletpoints {
+    text-align: left;
+    font-size: 15pt;
+    margin: 10pt;
+}
