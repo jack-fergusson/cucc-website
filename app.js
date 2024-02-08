@@ -109,6 +109,11 @@ app.get("/cucc", function(req, res) {
     });
 });
 
+app.get("/base", function(req,res){
+  // render sivans home
+  res.render("sivanHome");
+})
+
 app.get("/signup", function(req, res){
   // render the signupStrap ejs page
   res.render("signupStrap");
