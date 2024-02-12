@@ -373,6 +373,7 @@ hr {
     display: flex;
     margin: 2%;
     line-height: 1.5;
+    justify-content: space-around;
 
 
     img {
