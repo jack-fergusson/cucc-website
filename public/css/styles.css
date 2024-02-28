@@ -427,3 +427,29 @@ hr {
         
     }
 }
+
+.container7 {
+    display: flex;
+    justify-content: space-between;
+    
+    a {
+        outline: none;
+        background-color: inherit;
+        cursor: pointer;
+        border: none;
+       
+    }
+    
+}
+  
+.image-container7 {
+    text-align: center;
+  
+  
+    img { /*uses 3:2 ratio for pictures*/
+        width: 300px;
+        border-radius: 10px;
+    }
+
+    
+}
