@@ -1,0 +1,204 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.header {
+    height: 80px;
+    width: max-width;
+    background-color: #c84b31;
+    text-align:left;
+    line-height: 80px;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    
+}
+
+
+.Carousel {
+    text-align: center;
+    height: 500 px;
+    line-height: 500px;
+}
+
+.Welcome-Text { 
+    text-align: center;
+    font-size: 80pt;
+    height: 200px;
+    line-height: 200px;
+}
+
+.hr1 {
+    width: max-width;
+    height: 10px;
+    background-color: #ffbd59;
+}
+
+
+.flex-container {
+    width: 100%;
+    justify-content: center;
+}
+
+.hr2 {
+    margin: 60pt auto;
+    
+    width: 80%;
+    height: 5pt;
+    background-color: black;
+    
+}
+
+
+.container {
+    margin: 110px 60px;
+    width: 80% auto;
+    height: same-as-width;
+    background-color: #fff;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1/1;
+}
+
+.boxA,
+.boxB,
+.boxB2,
+.boxA2 {
+    background-color: #ffbd59;
+    color: black;
+    height: 100%;
+    display: flex;
+    font-size: 60px;
+    font-family: sans-serif;
+    padding: 0 40pt;
+    
+}
+
+.boxA, .boxA2 {
+    background-color:#c84b31;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.boxA h3 {
+    font-size: 100px;
+    margin-top: 80px;
+    
+}
+
+.boxA2 h2 {
+    font-size: 100 px;
+    justify-content: top;
+    margin: 10px;
+}
+    
+
+.boxA2 li {
+    list-style: none;
+    text-align: left;
+    justify-content: left;
+    font-size: 30pt;
+   
+}
+
+.boxA2 h6 {
+    text-align: left;
+    justify-content: left;
+    margin: 10px;
+}
+.boxA2 p {
+    font-size: 25px;
+    text-align: left;
+    justify-content: left;
+    margin: 10px;
+}
+
+.boxA2 h4 {
+    margin: 40pt 0;
+}
+
+.boxA2 h5 {
+    font-size: 20pt;
+}
+
+.newsTitle {
+    text-align: center;
+    font-size: 40pt;
+    margin-top: 20pt;
+}
+
+.container2 {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 50pt auto;
+
+}
+
+.NewsText {
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 30px;
+
+}
+
+.container4 {
+    background-color: #c84b31;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.LeftImages img{
+    width: 30px;
+    height: 30px;
+    padding: 20px;
+    margin-top: 12px;
+
+}
+
+.container4 li {
+    margin-bottom: 10px; 
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.RightImage img{
+    width: 30px;
+    height: 30px;
+    padding: 20px;
+    margin-right: 20px;
+    margin-top: 12px;
+
+}
+
+.hr3 {
+
+    margin: 0 auto;
+    width: 85%;
+    height: 0.5pt;
+    background-color: white;
+
+}
+
+.Ufooter{
+
+    height: 80px;
+    background-color: #c84b31;
+    text-align: center;
+    line-height: 80px;
+    color: white;
+}

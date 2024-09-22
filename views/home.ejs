@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queen's Chess Club</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+	<link rel="shortcut icon" type="image/x-icon" href="images/logo.jpg"/>
+</head>
+
+<%- include('header.ejs') %>
+
+<body>
+    <div class="centerer">
+        <div class="width-container">
+            <!-- <div>
+                <img src="/images/stauffer.jpg" style="max-width: 100%;">
+            </div> -->
+
+            <div>
+                <hr style="width: 100%">
+                <h1>WELCOME TO QUEENS CHESS CLUB</h1>
+                <hr style="width: 100%">
+            </div>
+
+            <br>
+            <br>
+
+            <div class="grid">
+                <div class="top-left square yellow">
+                    <h2>Come join us at our weekly meetings for some fun casual games!</h2>
+                </div>
+                <div class="top-right square red">
+                    <img src="/images/knight.png">
+                </div>
+                <div class="bottom-left square red">
+                    <img style="transform: scaleX(-1);" src="/images/knight.png">
+                </div>
+                <div class="bottom-right square yellow">
+                    <div>
+                        <h1 style="padding-top: 3%;">Meeting Schedule</h1>
+                        <h2>Wednesdays 6-9 Kinesiology Hall 102/103</h2>
+                        <h2>Sundays 6-9 Kingston Hall 209/210</h2>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+
+            <hr>
+
+            <h2 class = "centerer" >Latest News and Events</h2>
+
+            <div class="container7">
+                <div class="image-container7">
+                    <a href="qcc">
+                        <img src = "images/Chess_Competition_Pic" alt = "Queens Chess Competition"> <!--Chang picture to more appropriate picture-->
+                    </a>
+                    
+                    <h4>Queens Chess Competition (QCC)</h4>
+                </div>
+                <div class="image-container7">
+                    <a href = "coaching">
+                        <img src = "images/Chess_Coaching.png" alt = "Queens Chess Coaching"> <!--Chang picture to more appropriate picture-->
+                    </a>
+                    <h4>Queens Chess Club Coaching</h4>
+                </div>
+            </div>
+
+            <br>
+            <h5 class ="centerer">Click on the images for more information!</h5>
+            <br>
+            <hr>
+
+            <br>
+            <br>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+            
+            <hr>
+
+            <br>
+            <br>
+
+        </div>
+    </div>
+
+    <%- include('footer.ejs'); %>
+
+</body>
+</html>

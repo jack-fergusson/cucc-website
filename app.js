@@ -74,10 +74,26 @@ const School = mongoose.model(
 
 
 app.get("/", function(req, res) {
-  res.redirect("/home");
-})
+  res.render("home");
+});
+
+app.get("/execs", function(req, res) {
+  res.render("jackHome");
+});
+
+app.get("/qcc", function(req, res) {
+  res.render("qcc");
+});
+
+app.get("/coaching", function(req, res) {
+  res.render("coaching");
+});
 
 app.get("/home", function(req, res) {
+  res.redirect("/");
+});
+
+app.get("/cucc", function(req, res) {
 
   // THIS is the syntax to find items in a 
   // collection. Must use .exec() in order
@@ -91,6 +107,11 @@ app.get("/home", function(req, res) {
     .catch(function(err) {
       console.log(err);
     });
+});
+
+app.get("/base", function(req, res) {
+  //render the signupStrap ejs page
+  res.render("jaesonHome");
 });
 
 app.get("/signup", function(req, res){
@@ -166,7 +187,7 @@ app.post("/signup", function(req,res) {
   }
 
   // redirect to home
-  res.redirect("/");
+  res.redirect("/cucc");
 
 });
 
