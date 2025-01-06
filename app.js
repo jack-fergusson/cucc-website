@@ -74,11 +74,11 @@ const School = mongoose.model(
 
 
 app.get("/", function(req, res) {
-  res.render("home");
+  res.render("homePage");
 });
 
 app.get("/execs", function(req, res) {
-  res.render("jackHome");
+  res.render("exec");
 });
 
 app.get("/qcc", function(req, res) {
@@ -89,7 +89,7 @@ app.get("/coaching", function(req, res) {
   res.render("coaching");
 });
 
-app.get("/home", function(req, res) {
+app.get("/homePage", function(req, res) {
   res.redirect("/");
 });
 
