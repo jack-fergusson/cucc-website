@@ -436,8 +436,8 @@ hr {
 
 
     img {
-        width: 700px;
-        height: 849 px;
+        width: 50%;
+        height: 50%;
 
     }
 
@@ -466,7 +466,7 @@ hr {
     justify-content: space-between;
     
     img{
-        width: 300px;
+        width: 25%;
     }
 
     li {
