@@ -93,6 +93,11 @@ app.get("/homePage", function(req, res) {
   res.redirect("/");
 });
 
+app.get("/CUCC2025", function(req, res) {
+  res.render("CUCC2025");
+});
+
+
 app.get("/cucc", function(req, res) {
 
   // THIS is the syntax to find items in a 
@@ -102,7 +107,7 @@ app.get("/cucc", function(req, res) {
     .then(function(results) {
       // render the homestrap ejs page, passing in the
       // results of the database query
-      res.render("homeStrap", {schools: results});
+      res.render("CUCC2024", {schools: results});
     })
     .catch(function(err) {
       console.log(err);
