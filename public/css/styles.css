@@ -456,6 +456,10 @@ hr {
         margin-top:20px;
         margin-bottom: 20px;
     }
+
+    h4{
+        font-weight: normal;
+    }
     
 }
 
@@ -487,6 +491,10 @@ hr {
             color: blue;
             text-align: left;
             
+        }
+
+        h4{
+            font-weight: normal;
         }
     }
 }
@@ -585,6 +593,81 @@ hr {
 /* -------------------------------------------------------------------------------------- */
 
 
+
+
+/* -------------------------------------------------------------------------------------- */
+/*                                blitz tournament Page                                   */
+/* -------------------------------------------------------------------------------------- */
+
+.blitzT-container-1 {
+    display: flex;
+    margin: 0 auto;
+    width: 90%;
+    line-height: 1.5;
+    justify-content: space-around;
+    justify-items: center;
+    align-items:center;
+
+
+    img {
+        width: 50%;
+        height: 50%;
+        justify-content: center;
+        align-items:center;
+    }
+
+    li{
+        list-style: none;
+        margin: 20px;
+        text-align: center;
+
+        h3{
+            font-size: 2rem;
+        }
+    }
+
+    hr {
+        margin-top:20px;
+        margin-bottom: 20px;
+    }
+
+    h4{
+        font-weight: normal;
+    }
+    
+}
+
+.blitzT-container-2{
+    
+    display: flex;
+    margin: 0px auto;
+    width: 75%;
+    justify-content: space-between;
+    align-items: center;
+    
+    img{
+        width: 25%;
+        height:25%;
+    }
+
+    li {
+        list-style: none;
+        line-height: 2;
+        margin: 0;
+        padding:0;
+
+        h2{
+            text-align: left;
+            font-size: 60px;
+        }
+    
+        a {
+            color: blue;
+            text-align: left;
+            
+        }
+    }
+}
 
 
 

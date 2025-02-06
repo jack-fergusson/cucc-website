@@ -97,6 +97,10 @@ app.get("/CUCC2025", function(req, res) {
   res.render("CUCC2025");
 });
 
+app.get("/blitzT", function(req, res) {
+  res.render("blitzT");
+});
+
 
 app.get("/cucc", function(req, res) {
 
