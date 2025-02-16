@@ -724,3 +724,89 @@ hr {
     margin-right: 20px;
     margin-top: 12px;
 }
+
+/* -------------------------------------------------------------------------------------- */
+/*                                      Events Page                                       */
+/* -------------------------------------------------------------------------------------- */
+
+.Events-container {
+    width: 70%;
+    height: auto;
+    background-color: #c84b31;
+    border-radius: 15px;
+    margin-top: 15px;
+    padding-bottom: 20px;
+    text-align: center;
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.Events-container h2 {
+    color: white;
+    padding-top: 15px;
+    font-weight: bold;
+}
+
+.Events-bar-section {
+    width: 80%;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Events-bar {
+    width: 70%;
+    background-color: #ffffff;
+    margin: 7px 0;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.event-details {
+    display: none;
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Hide the button by default */
+.event-button {
+    display: none;
+    text-decoration: none;
+    background-color: #ff5733;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 10px;
+    transition: background 0.3s ease-in-out;
+}
+
+.event-button:hover {
+    background-color: #d9441c;
+}
+
+/* Show details & button only on hover */
+.Events-bar:hover {
+    width: 80%;
+    background-color: #ffcc29;
+    transform: scale(1.05);
+    text-align: left;
+    padding-left: 20px;
+}
+
+.Events-bar:hover .event-details {
+    display: block;
+    text-align: left;
+}
+
+.Events-bar:hover .event-button {
+    display: inline-block;
+}

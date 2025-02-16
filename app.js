@@ -101,6 +101,9 @@ app.get("/blitzT", function(req, res) {
   res.render("blitzT");
 });
 
+app.get("/eventsPage", function(req, res) {
+  res.render("eventsPage");
+});
 
 app.get("/cucc", function(req, res) {
 

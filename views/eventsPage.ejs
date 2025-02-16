@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Page</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+	<link rel="shortcut icon" type="image/x-icon" href="images/logo.jpg"/>
+</head>
+
+<%- include('header.ejs') %>
+
+<body>
+
+    <div class="centerer">
+        <h1>Events</h1>
+
+        <div class="Events-container">
+            <h2>2025</h2>
+            <hr>
+            <div class="Events-bar-section">
+                <div class="Events-bar" onclick="navigateTo('cucc.html')">
+                    <h3>Canadan University Chess Championship</h3>
+                    <p class="event-details">
+                        📍 Location: Queen's University, Kingston, ON<br>
+                        📅 Start Date: Jan 24th, 2024 <br>
+                        📅 End Date: Jan 26th, 2024 <br>
+                        📌 CFC rated Tournament<br>
+                    </p>
+                    <a href="register_cucc.html" class="event-button">Click here for more information</a>
+                </div>
+
+                <div class="Events-bar" onclick="navigateTo('qcc.ejs')">
+                    <h3>Queen's Chess Competition</h3>
+                    <p class="event-details">
+                        📍 Location: Queen's University, Kingston, ON<br>
+                        📅 Start Date: Jan 24th, 2024 <br>
+                        📅 End Date: Jan 26th, 2024 <br>
+                        📌 CFC rated Tournament<br>
+                    </p>
+                    <a href="register_cucc.html" class="event-button">Click here for more information</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="Events-container">
+            <h2>2024</h2>
+            <hr>
+            <div class="Events-bar-section">
+                <div class="Events-bar" onclick="navigateTo('CUCC2025.ejs')">
+                    <h3>Canadian University Chess Championship</h3>
+                    <p class="event-details">
+                        📍 Location: Queen's University, Kingston, ON<br>
+                        📅 Start Date: Jan 24th, 2024 <br>
+                        📅 End Date: Jan 26th, 2024 <br>
+                        📌 CFC rated Tournament<br>
+                        🎟️ <a href="register_cucc.html">Register Now</a>
+                    </p>
+                </div>
+
+                <div class="Events-bar" onclick="navigateTo('qcc.ejs')">
+                    <h3>Queen's Chess Competition</h3>
+                    <p class="event-details">
+                        📍 Location: Queen's University, Kingston, ON<br>
+                        📅 Start Date: Jan 24th, 2024 <br>
+                        📅 End Date: Jan 26th, 2024 <br>
+                        📌 CFC rated Tournament<br>
+                    </p>
+                    <a href="register_cucc.html" class="event-button">Click here for more information</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
+
+    <br><br>
+    <%- include('footer.ejs'); %>
+
+</body>
+</html>
