@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events Page</title>
+    <title>Events - Queen's Chess Club</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,8 +11,8 @@
 
     <link href="css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-	<link rel="shortcut icon" type="image/x-icon" href="images/logo.jpg"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/logo.jpg"/>
 </head>
 
 <%- include('header.ejs') %>
@@ -20,32 +20,44 @@
 <body>
 
     <div class="centerer">
-        <h1>Events</h1>
+        <h1>EVENTS</h1>
 
         <div class="Events-container">
             <h2>2025</h2>
             <hr>
             <div class="Events-bar-section">
-                <div class="Events-bar" onclick="navigateTo('cucc.html')">
-                    <h3>Canadan University Chess Championship</h3>
-                    <p class="event-details">
-                        📍 Location: Queen's University, Kingston, ON<br>
-                        📅 Start Date: Jan 24th, 2024 <br>
-                        📅 End Date: Jan 26th, 2024 <br>
-                        📌 CFC rated Tournament<br>
-                    </p>
-                    <a href="register_cucc.html" class="event-button">Click here for more information</a>
-                </div>
 
-                <div class="Events-bar" onclick="navigateTo('qcc.ejs')">
+                <div class="Events-bar upcoming" onclick="navigateTo('QCC2025.ejs')" style="background-image: url('images/stauffer.jpg')">
                     <h3>Queen's Chess Competition</h3>
                     <p class="event-details">
-                        📍 Location: Queen's University, Kingston, ON<br>
-                        📅 Start Date: Jan 24th, 2024 <br>
-                        📅 End Date: Jan 26th, 2024 <br>
+                        📍 Queen's University, Kingston, ON<br>
+                        📅 March 2nd-3rd <br>
                         📌 CFC rated Tournament<br>
+                        🎮 Personal Competition
                     </p>
-                    <a href="register_cucc.html" class="event-button">Click here for more information</a>
+                    <a href="/QCC2025" class="event-button">More Info + Sign Up Now!</a>
+                </div>
+
+                <div class="Events-bar" onclick="navigateTo('CUCC2025.ejs')" style="background-image: url('images/CUCC2024image.jpg')">
+                    <h3>Canadian University Chess Championship</h3>
+                    <p class="event-details">
+                        📍 Queen's University, Kingston, ON<br>
+                        📅 January 24-26, 2025<br>
+                        📌 CFC rated Tournament<br>
+                        🏆 CFC rated Team Competition
+                    </p>
+                    <a href="CUCC2025" class="event-button">Learn more + view results</a>
+                </div>
+            
+                <div class="Events-bar" onclick="navigateTo('blitzT.ejs')" style="background-image: url('images/stauffer.jpg')">
+                    <h3>Winter Blitz Tournament</h3>
+                    <p class="event-details">
+                        📍 Queen's University, Kingston, ON<br>
+                        📅 February 8, 2025<br>
+                        📌 Ratings based on Chess.com or Lichess.org accounts<br>
+                        ⚡ 5-minute games with 3-second increments
+                    </p>
+                    <a href="/blitzT" class="event-button">Learn more + view results</a>
                 </div>
             </div>
         </div>
@@ -54,26 +66,26 @@
             <h2>2024</h2>
             <hr>
             <div class="Events-bar-section">
-                <div class="Events-bar" onclick="navigateTo('CUCC2025.ejs')">
+                <div class="Events-bar" onclick="navigateTo('cucc2024.html')" style="background-image: url('images/CUCC2024image.jpg')">
                     <h3>Canadian University Chess Championship</h3>
                     <p class="event-details">
-                        📍 Location: Queen's University, Kingston, ON<br>
-                        📅 Start Date: Jan 24th, 2024 <br>
-                        📅 End Date: Jan 26th, 2024 <br>
+                        📍 Queen's University, Kingston, ON<br>
+                        📅 January 24-26, 2025<br>
                         📌 CFC rated Tournament<br>
-                        🎟️ <a href="register_cucc.html">Register Now</a>
+                        🏆 CFC rated Team Competition
                     </p>
+                    <a href="/CUCC2024" class="event-button">Learn more + view results</a>
                 </div>
 
-                <div class="Events-bar" onclick="navigateTo('qcc.ejs')">
+                <div class="Events-bar" onclick="navigateTo('qcc2024.html')" style="background-image: url('images/stauffer.jpg')">
                     <h3>Queen's Chess Competition</h3>
                     <p class="event-details">
-                        📍 Location: Queen's University, Kingston, ON<br>
-                        📅 Start Date: Jan 24th, 2024 <br>
-                        📅 End Date: Jan 26th, 2024 <br>
+                        📍 Queen's University, Kingston, ON<br>
+                        📅 March 2nd-3rd <br>
                         📌 CFC rated Tournament<br>
+                        🎮 Personal Competition
                     </p>
-                    <a href="register_cucc.html" class="event-button">Click here for more information</a>
+                    <a href="/QCC2024" class="event-button">Learn more + view results</a>
                 </div>
             </div>
         </div>

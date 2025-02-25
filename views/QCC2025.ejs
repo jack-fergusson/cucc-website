@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Name - Queen's Chess Club</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/tournament-page.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/logo.jpg"/>
+</head>
+
+<%- include('header.ejs') %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Name - Queen's Chess Club</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/tournament-page.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/logo.jpg"/>
+</head>
+
+<%- include('header.ejs') %>
+
+<body>
+    <!-- Hero Section with Banner Image -->
+    <div class="tournament-hero" style="background-image: url('images/event-banner.jpg');">
+        <div class="tournament-hero-overlay">
+            <div class="tournament-hero-content">
+
+                <!--#########################              Change info here                  #####################-->
+
+                <h1>Queens Chess Championship 2025</h1>               
+                <div class="tournament-date-badge">Mar 2nd-3rd</div>
+                <p class="tournament-tagline">Queens annual classical tournament hosted by Queens Chess Club!</p>     
+
+                <!--------------------------------------------------------------------------------------------------->       
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="centerer">
+        <div class="tournament-container">
+
+
+            <!--#########################              Change info here                  #####################-->
+
+            <!-- Quick Info Panel -->
+            <div class="tournament-info-panel">
+                <div class="tournament-info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="tournament-info-content">
+                        <h3>Location</h3>
+                        <p>Queen's University<br>Kingston, Ontario</p>   <!--  !!!!!  -->
+                    </div>
+                </div>
+                <div class="tournament-info-item">
+                    <i class="far fa-calendar-alt"></i>
+                    <div class="tournament-info-content">
+                        <h3>Date & Time</h3>
+                        <p>March 2nd-3rd<br></p>  <!--  !!!!!  -->
+                    </div>
+                </div>
+                <div class="tournament-info-item">
+                    <i class="fas fa-chess-knight"></i>
+                    <div class="tournament-info-content">
+                        <h3>Format</h3>
+                        <p>5 Round Swiss<br>90min + 30sec increment</p>   <!--  !!!!!  -->
+                    </div>
+                </div>
+            </div>
+
+            <!--------------------------------------------------------------------------------------------------->   
+
+            <!-- About Section -->
+            <div class="tournament-section">
+                <h2>About the Tournament</h2>
+
+                <!--#########################              Change info here                  #####################-->
+
+                <p>The Queen's Chess Championship is the premier chess event hosted by the Queen's Chess Club, bringing together chess enthusiasts from Queen's University and the broader Kingston community.</p>
+                <p>This annual classical tournament features competitive play in a friendly environment, welcoming players of all skill levels while providing an opportunity to earn CFC rating points.</p>
+                <p>The 2025 edition will be hosted at Stauffer Library on Queen's University campus in Kingston, Ontario, showcasing the growing chess community at Queen's.</p>
+
+                <!--------------------------------------------------------------------------------------------------->
+                
+            </div>
+
+            <!-- Enhanced Registration CTA -->
+            <div class="tournament-registration-cta">
+                <h2 class="registration-title">Register for the Tournament</h2>     <!-- Change if not tournament  -->
+                <div class="registration-flex-container">
+                    <div class="registration-button-container">
+                        <a href="register_cucc.html" class="tournament-register-button">Register Now</a>
+                        <p class="tournament-registration-deadline">Registration closes March 1st 11:59PM EST!</p> <!-- Change date  -->
+                    </div>
+                    <div class="registration-qr-container">
+                        <img src="images/QCC_QR_code.png" alt="Registration QR Code" class="registration-qr-code">  <!-- Change QR code  -->
+                        <p>Scan to register</p>   
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tournament Details Section -->
+            <div class="tournament-section">
+                <h2>Tournament Details</h2>
+                <div class="tournament-details-grid">
+                    <div class="tournament-detail-card">
+
+                        <!--#########################              Change info here                  #####################-->
+
+                        <h3>Format</h3>
+                        <ul>
+                            <li>5 Round Swiss Tournament</li>
+                            <li>Time Control: 90 minutes with 30 second increment</li>
+                            <li>CFC Rated</li>
+                            <li>Individual scoring</li>
+                        </ul>
+                    </div>
+                    <div class="tournament-detail-card">
+                        <h3>Schedule</h3>
+                        <ul>
+                            <li><strong>Saturday March 2nd</strong>
+                                <ul>
+                                    <li>8:30 AM: Registration</li>
+                                    <li>9:00 AM: Round 1</li>
+                                    <li>1:30 PM: Round 2</li>
+                                    <li>6:00 PM: Round 3</li>
+                                </ul>
+                            </li>
+                            <li><strong>Sunday, March 3rd</strong>
+                                <ul>
+                                    <li>9:30 AM: Round 4</li>
+                                    <li>2:00 PM: Round 5</li>
+                                    <li>6:30 PM: Closing Remarks</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tournament-detail-card">
+                        <h3>Eligibility</h3>
+                        <ul>
+                            <li>Open to all!</li>
+                            <li>Must have a CFC account</li>
+                        </ul>
+                    </div>
+                    <div class="tournament-detail-card">
+                        <h3>Location</h3>
+                        <ul>
+                            <li>Stauffer Library</li>
+                            <li>101 Union Street</li>
+                            <li>Queen's University, Kingston</li>
+                            <li>Games hosted in Room 201</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="tournament-section tournament-contact-section">
+                <h2>Contact Us</h2>
+                <p>If you have any questions about the tournament, please don't hesitate to contact us:</p>
+                <div class="tournament-contact-cards">
+                    <div class="tournament-contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>queensuchess@outlook.com</p>
+                    </div>
+                    <div class="tournament-contact-card">
+                        <i class="fab fa-discord"></i>
+                        <h3>Discord</h3>
+                        <p>Join our server: <a href="https://discord.gg/queenschess">discord.gg/queenschess</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <br><br>
+    <%- include('footer.ejs'); %>
+
+    <script>
+        // Simple script to handle sticky navigation and smooth scrolling
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.main-header');
+            if (window.scrollY > 100) {
+                header.classList.add('sticky');
+            } else {
+                header.classList.remove('sticky');
+            }
+        });
+    </script>
+</body>
+</html>

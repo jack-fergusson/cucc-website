@@ -81,8 +81,8 @@ app.get("/execs", function(req, res) {
   res.render("exec");
 });
 
-app.get("/qcc", function(req, res) {
-  res.render("qcc");
+app.get("/QCC2024", function(req, res) {
+  res.render("QCC2024");
 });
 
 app.get("/coaching", function(req, res) {
@@ -105,7 +105,7 @@ app.get("/eventsPage", function(req, res) {
   res.render("eventsPage");
 });
 
-app.get("/cucc", function(req, res) {
+app.get("/CUCC2024", function(req, res) {
 
   // THIS is the syntax to find items in a 
   // collection. Must use .exec() in order
@@ -122,14 +122,21 @@ app.get("/cucc", function(req, res) {
 });
 
 app.get("/base", function(req, res) {
-  //render the signupStrap ejs page
   res.render("jaesonHome");
 });
 
 app.get("/signup", function(req, res){
-  // render the signupStrap ejs page
   res.render("signupStrap");
 });
+
+app.get("/eventsPageTemplate", function(req, res){
+  res.render("eventsPageTemplate");
+});
+
+app.get("/QCC2025", function(req, res){
+  res.render("QCC2025");
+});
+
 
 app.post("/signup", function(req,res) {
   // console.log(req.body.teamName);

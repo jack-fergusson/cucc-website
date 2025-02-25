@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Name - Queen's Chess Club</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/tournament-page.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/logo.jpg"/>
+</head>
+
+<%- include('header.ejs') %>
+
+<body>
+    <!-- Hero Section with Banner Image -->
+    <div class="tournament-hero" style="background-image: url('images/event-banner.jpg');">
+        <div class="tournament-hero-overlay">
+            <div class="tournament-hero-content">
+                <h1>Canadian University Chess Championship</h1>
+                <div class="tournament-date-badge">Jan 24-26, 2025</div>
+                <p class="tournament-tagline">The premier collegiate chess competition in Canada</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="centerer">
+        <div class="tournament-container">
+            <!-- Quick Info Panel -->
+            <div class="tournament-info-panel">
+                <div class="tournament-info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="tournament-info-content">
+                        <h3>Location</h3>
+                        <p>Queen's University<br>Kingston, Ontario</p>
+                    </div>
+                </div>
+                <div class="tournament-info-item">
+                    <i class="far fa-calendar-alt"></i>
+                    <div class="tournament-info-content">
+                        <h3>Date & Time</h3>
+                        <p>January 24-26, 2025<br>9:00 AM - 5:00 PM</p>
+                    </div>
+                </div>
+                <div class="tournament-info-item">
+                    <i class="fas fa-chess-knight"></i>
+                    <div class="tournament-info-content">
+                        <h3>Format</h3>
+                        <p>5 Round Swiss<br>90min + 30sec increment</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Section -->
+            <div class="tournament-section">
+                <h2>About the Tournament</h2>
+                <p>The Canadian University Chess Championship (CUCC) is the premier collegiate chess event in Canada, bringing together the best university chess players from across the country to compete for both individual and team honors.</p>
+                <p>Founded in 2019, the CUCC has grown to become a prestigious event in the collegiate chess calendar, with participating universities including Queen's, University of Toronto, McGill, UBC, and many others.</p>
+                <p>The 2025 edition will be hosted by Queen's University in Kingston, Ontario, and organized by the Queen's University Chess Club.</p>
+            </div>
+
+            <!-- Enhanced Registration CTA -->
+            <div class="tournament-registration-cta">
+                <h2 class="registration-title">Register for the Championship</h2>
+                <div class="registration-flex-container">
+                    <div class="registration-button-container">
+                        <a href="register_cucc.html" class="tournament-register-button">Register Now</a>
+                        <p class="tournament-registration-deadline">Registration closes January 20, 2025</p>
+                    </div>
+                    <div class="registration-qr-container">
+                        <img src="images/QCC_QR_code.png" alt="Registration QR Code" class="registration-qr-code">
+                        <p>Scan to register</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tournament Details Section -->
+            <div class="tournament-section">
+                <h2>Tournament Details</h2>
+                <div class="tournament-details-grid">
+                    <div class="tournament-detail-card">
+                        <h3>Format</h3>
+                        <ul>
+                            <li>6 Round Swiss Tournament</li>
+                            <li>Time Control: 90 minutes with 30 second increment</li>
+                            <li>CFC and FIDE Rated</li>
+                            <li>Team Scoring: Top 4 players from each university</li>
+                        </ul>
+                    </div>
+                    <div class="tournament-detail-card">
+                        <h3>Schedule</h3>
+                        <ul>
+                            <li><strong>Friday, Jan 24</strong>
+                                <ul>
+                                    <li>8:00 AM: Registration</li>
+                                    <li>9:30 AM: Round 1</li>
+                                    <li>3:00 PM: Round 2</li>
+                                </ul>
+                            </li>
+                            <li><strong>Saturday, Jan 25</strong>
+                                <ul>
+                                    <li>9:30 AM: Round 3</li>
+                                    <li>3:00 PM: Round 4</li>
+                                    <li>7:00 PM: Blitz Tournament</li>
+                                </ul>
+                            </li>
+                            <li><strong>Sunday, Jan 26</strong>
+                                <ul>
+                                    <li>9:30 AM: Round 5</li>
+                                    <li>2:30 PM: Round 6</li>
+                                    <li>6:30 PM: Awards Ceremony</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tournament-detail-card">
+                        <h3>Eligibility</h3>
+                        <ul>
+                            <li>Open to all full-time university students</li>
+                            <li>Must provide valid student ID</li>
+                            <li>Universities may enter multiple teams</li>
+                            <li>Team scoring takes top 4 players from each university</li>
+                        </ul>
+                    </div>
+                    <div class="tournament-detail-card">
+                        <h3>Location</h3>
+                        <ul>
+                            <li>Mitchell Hall</li>
+                            <li>69 Union Street</li>
+                            <li>Queen's University, Kingston</li>
+                            <li>Main playing hall: 2nd floor</li>
+                            <li>Analysis room: Room 215</li>
+                            <li>Parking available at University Avenue Garage</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="tournament-section results-section">
+                <h2>Tournament Results</h2>
+            
+                <!-- Congratulations Banner -->
+                <div class="congratulations-banner">
+                    <div class="trophy-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="banner-text">
+                        <h3>Congratulations to all participants!</h3>
+                        <p>Thank you to everyone who made the Queens Chess Championship 2025 a success</p>
+                    </div>
+                </div>
+                
+                
+                <!-- Results Links -->
+                <div class="results-links">
+                    <a href="#" class="results-link-card">
+                        <div class="link-icon"><i class="fas fa-list-ol"></i></div>
+                        <div class="link-content">
+                            <h4>Complete Tournament Results</h4>
+                            <p>View the full standings, individual game results, and statistics</p>
+                        </div>
+                        <div class="link-arrow"><i class="fas fa-arrow-right"></i></div>
+                    </a>
+                    
+                    <a href="#" class="results-link-card">
+                        <div class="link-icon"><i class="fas fa-camera"></i></div>
+                        <div class="link-content">
+                            <h4>Tournament Photos</h4>
+                            <p>Browse the photo gallery from this year's championship</p>
+                        </div>
+                        <div class="link-arrow"><i class="fas fa-arrow-right"></i></div>
+                    </a>
+                </div>
+                
+                <!-- Participant Recognition -->
+                <div class="participants-recognition">
+                    <h3>Thank You to All Participants</h3>
+                    <p>We had a record turnout of 42 players from Queen's University and the Kingston community. Your passion for chess and sportsmanship made this tournament a memorable experience for everyone involved.</p>
+                    
+                    <div class="stats-highlights">
+                        <div class="stat-item">
+                            <span class="stat-number">21</span>
+                            <span class="stat-label">Players</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">55</span>
+                            <span class="stat-label">Games Played</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">5</span>
+                            <span class="stat-label">Rounds</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Call to Action for Next Year -->
+                <div class="next-year-cta">
+                    <h3>Join Us Next Year!</h3>
+                    <p>Save the date for the Queens Chess Championship 2026</p>
+                    <div class="next-year-date">March 2026</div>
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="tournament-section tournament-contact-section">
+                <h2>Contact Us</h2>
+                <p>If you have any questions about the tournament, please don't hesitate to contact us:</p>
+                <div class="tournament-contact-cards">
+                    <div class="tournament-contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>queensuchess@outlook.com</p>
+                    </div>
+                    <div class="tournament-contact-card">
+                        <i class="fab fa-discord"></i>
+                        <h3>Discord</h3>
+                        <p>Join our server: <a href="https://discord.gg/queenschess">discord.gg/queenschess</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <br><br>
+    <%- include('footer.ejs'); %>
+
+    <script>
+        // Simple script to handle sticky navigation and smooth scrolling
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.main-header');
+            if (window.scrollY > 100) {
+                header.classList.add('sticky');
+            } else {
+                header.classList.remove('sticky');
+            }
+        });
+    </script>
+</body>
+</html>
