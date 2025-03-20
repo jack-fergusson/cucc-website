@@ -89,8 +89,7 @@
                 </div>
             </div>
 
-            <!--------------------------------------------------------------------------------------------------->   
-
+            
             <!-- About Section -->
             <div class="tournament-section">
                 <h2>About the Tournament</h2>
@@ -105,20 +104,87 @@
                 
             </div>
 
-            <!-- Enhanced Registration CTA -->
-            <div class="tournament-registration-cta">
-                <h2 class="registration-title">Register for the Tournament</h2>     <!-- Change if not tournament  -->
-                <div class="registration-flex-container">
-                    <div class="registration-button-container">
-                        <a href="register_cucc.html" class="tournament-register-button">Register Now</a>
-                        <p class="tournament-registration-deadline">Registration closes March 1st 11:59PM EST!</p> <!-- Change date  -->
+            <div class="tournament-section results-section">
+                <h2>Tournament Results</h2>
+            
+                <!-- Congratulations Banner -->
+                <div class="congratulations-banner">
+                    <div class="trophy-icon">
+                        <i class="fas fa-trophy"></i>
                     </div>
-                    <div class="registration-qr-container">
-                        <img src="images/QCC_QR_code.png" alt="Registration QR Code" class="registration-qr-code">  <!-- Change QR code  -->
-                        <p>Scan to register</p>   
+                    <div class="banner-text">
+                        <h3>Congratulations to all participants!</h3>
+                        <p>Thank you to everyone who made the Queens Chess Championship 2025 a success</p>
                     </div>
                 </div>
+                
+                
+                <!-- Results Links -->
+                <div class="results-links">
+                    <!-- Link card that triggers the modal -->
+                    <a href="#" class="results-link-card" id="results-trigger">
+                        <div class="link-icon"><i class="fas fa-list-ol"></i></div>
+                        <div class="link-content">
+                            <h4>Complete Tournament Results</h4>
+                            <p>View the full standings, individual game results, and statistics</p>
+                        </div>
+                        <div class="link-arrow"><i class="fas fa-arrow-right"></i></div>
+                    </a>
+
+                    <!-- Modal that appears when the link is clicked -->
+                    <div id="results-modal" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-section top-section">
+                                <h3>Crown</h3>
+                                <img src="images/QCC 2025 Crown Standing.png" alt="Crown division results" class="results-image">
+                            </div>
+                            <div class="modal-section bottom-section">
+                                <h3>U1600</h3>
+                                <img src="images/QCC 2025 U1600 Standing.png" alt="U1600 division results" class="results-image">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="https://drive.google.com/drive/folders/1-58k6_xDfgo30deCSWxIU-hbTF1wjLG4" target="_blank" class="results-link-card">
+                        <div class="link-icon"><i class="fas fa-camera"></i></div>
+                        <div class="link-content">
+                            <h4>Tournament Photos</h4>
+                            <p>Browse the photo gallery from this year's championship</p>
+                        </div>
+                        <div class="link-arrow"><i class="fas fa-arrow-right"></i></div>
+                    </a>
+                </div>
+                
+                <!-- Participant Recognition -->
+                <div class="participants-recognition">
+                    <h3>Thank You to All Participants</h3>
+                    <p>Your passion for chess and sportsmanship made this tournament a memorable experience for everyone involved.</p>
+                    
+                    <div class="stats-highlights">
+                        <div class="stat-item">
+                            <span class="stat-number">18</span>
+                            <span class="stat-label">Players</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">37</span>
+                            <span class="stat-label">Games Played</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">5</span>
+                            <span class="stat-label">Rounds</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Call to Action for Next Year -->
+                <div class="next-year-cta">
+                    <h3>Join Us Next Year!</h3>
+                    <p>Save the date for the Queens Chess Championship 2026</p>
+                    <div class="next-year-date">March 2026</div>
+                </div>
             </div>
+
+
 
             <!-- Tournament Details Section -->
             <div class="tournament-section">
@@ -139,7 +205,7 @@
                     <div class="tournament-detail-card">
                         <h3>Schedule</h3>
                         <ul>
-                            <li><strong>Saturday March 2nd</strong>
+                            <li><strong>Saturday March 1st</strong>
                                 <ul>
                                     <li>8:30 AM: Registration</li>
                                     <li>9:00 AM: Round 1</li>
@@ -147,7 +213,7 @@
                                     <li>6:00 PM: Round 3</li>
                                 </ul>
                             </li>
-                            <li><strong>Sunday, March 3rd</strong>
+                            <li><strong>Sunday, March 2nd</strong>
                                 <ul>
                                     <li>9:30 AM: Round 4</li>
                                     <li>2:00 PM: Round 5</li>
@@ -175,6 +241,7 @@
                 </div>
             </div>
 
+        
             <!-- Contact Section -->
             <div class="tournament-section tournament-contact-section">
                 <h2>Contact Us</h2>
@@ -209,6 +276,69 @@
                 header.classList.remove('sticky');
             }
         });
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // U1600 Section Modal
+            const u1600Preview = document.getElementById('u1600-thumbnail').parentElement;
+            const u1600Modal = document.getElementById('u1600-modal');
+            const u1600Close = u1600Modal.querySelector('.close-modal');
+            
+            u1600Preview.addEventListener('click', function() {
+                u1600Modal.style.display = 'block';
+            });
+            
+            u1600Close.addEventListener('click', function() {
+                u1600Modal.style.display = 'none';
+            });
+            
+            // Crown Section Modal
+            const crownPreview = document.getElementById('crown-thumbnail').parentElement;
+            const crownModal = document.getElementById('crown-modal');
+            const crownClose = crownModal.querySelector('.close-modal');
+            
+            crownPreview.addEventListener('click', function() {
+                crownModal.style.display = 'block';
+            });
+            
+            crownClose.addEventListener('click', function() {
+                crownModal.style.display = 'none';
+            });
+            
+            // Close modals when clicking outside the image
+            window.addEventListener('click', function(event) {
+                if (event.target == u1600Modal) {
+                    u1600Modal.style.display = 'none';
+                }
+                if (event.target == crownModal) {
+                    crownModal.style.display = 'none';
+                }
+            });
+        });
+
+
+        // Get the modal and trigger elements
+        const modal = document.getElementById("results-modal");
+        const trigger = document.getElementById("results-trigger");
+
+        // Open the modal when the link is clicked
+        trigger.addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden"; // Prevent scrolling while modal is open
+        });
+
+        // Close the modal when clicking anywhere
+        modal.addEventListener("click", function() {
+            modal.style.display = "none";
+            document.body.style.overflow = ""; // Restore scrolling
+        });
     </script>
+
+
+
+
+
+
 </body>
 </html>
