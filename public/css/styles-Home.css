@@ -1,0 +1,591 @@
+/* ------------------------------------------------------------------------------------------------------------ */
+/*                                         General elements                                                     */
+/* ------------------------------------------------------------------------------------------------------------ */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    padding-top: 70px;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    color: black;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+h1 { 
+    font-family: "Vollkorn", sans-serif; 
+    text-align: center; 
+    letter-spacing: 2px; 
+    font-size: 3rem; 
+}
+
+h2 { 
+    font-family: "Vollkorn", serif; 
+    text-align: center; 
+    font-weight: 500; 
+    letter-spacing: 2px; 
+    font-size: 2.5rem; 
+}
+
+h3 { 
+    font-family: "IBM Plex Serif", serif; 
+    font-weight: 700; 
+    font-size: 1.5rem; 
+}
+
+h4, h5, h6 { 
+    font-family: "Montserrat", sans-serif; 
+    font-style: italic; 
+}
+
+h5, h6 { 
+    font-weight: 300; 
+}
+
+h5 { 
+    font-size: 1.5rem; 
+}
+
+h6 { 
+    font-size: 1rem; 
+}
+
+p { 
+    font-family: "Montserrat", sans-serif; 
+    font-weight: 300; 
+    font-size: 1.5rem; 
+}
+
+hr {
+    width: 60%;
+    margin: 2rem auto;
+    border: none;
+    height: 2px;
+    background-color: #c84b31;
+}
+
+/* ------------------------------------------------------------------------------------------------------------ */
+/*                                         Layout Classes                                                       */
+/* ------------------------------------------------------------------------------------------------------------ */
+
+.content-container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.section-title {
+    text-align: center;
+    color: #c84b31;
+    margin-bottom: 2rem;
+}
+
+/* ------------------------------------------------------------------------------------------------------------ */
+/*                                         Header                                                               */
+/* ------------------------------------------------------------------------------------------------------------ */
+
+.header-container, .site-header {
+    background: #c84b31;
+    font-family: 'League Spartan', sans-serif;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    top: 0;
+    display: table;
+    table-layout: fixed;
+    margin: 0;
+    height: 60px;
+    border-bottom: 10px solid #ffdb59;
+}
+
+.logo {
+    display: inline-block;
+    position: absolute;
+    left: 2%;
+}
+
+.links {
+    padding-left: 5.208vw;
+}
+
+nav ul {
+    position: relative;
+    width: 100%;
+    height: 10px;
+    margin: 0 auto;
+}
+
+nav li {
+    position: relative;
+    bottom: -25px;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+li a {
+    display: block;
+    color: white;
+    font-weight: 300;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 45px;
+    background-color: #f1f1f1;
+    min-width: 120px;
+    box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #c84b31;
+}
+
+.dropbtn {
+    background-color: #c84b31;
+    color: white;
+    font-size: 20px;
+    border: none;
+    bottom: -25px;
+    position: relative;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 300;
+    padding-left: 20px;
+}
+
+.tags {
+    position: relative;
+}
+
+.tags::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 30px;
+    width: 0%;
+    transition: all ease-in-out 250ms;
+}
+
+.tags:hover::before {
+    width: 100%;
+}
+
+/* ------------------------------------------------------------------------------------------------------------ */
+/*                                         Hero Carousel                                                        */
+/* ------------------------------------------------------------------------------------------------------------ */
+
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.hero-carousel__slides {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hero-carousel__slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-carousel__slide--active {
+    opacity: 1;
+}
+
+.hero-carousel__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-carousel__title {
+    color: white;
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: "Vollkorn", serif;
+}
+
+.hero-carousel__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #c84b31;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.hero-carousel__arrow:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.hero-carousel__arrow--prev {
+    left: 20px;
+}
+
+.hero-carousel__arrow--next {
+    right: 20px;
+}
+
+.hero-carousel__navigation {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.hero-carousel__navigation-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hero-carousel__navigation-dot--active {
+    background-color: #ffdb59;
+}
+
+/* ------------------------------------------------------------------------------------------------------------ */
+/*                                         Club Sections                                                        */
+/* ------------------------------------------------------------------------------------------------------------ */
+
+/* About Club Section */
+.club-about {
+    background-color: #f8f8f8;
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+}
+
+.club-about__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.club-about__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.club-about__text p {
+    text-align: center;
+}
+
+/* Club Offerings Section */
+.club-offerings {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.club-offerings__card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.club-offerings__card:hover {
+    transform: translateY(-5px);
+}
+
+.club-offerings__icon {
+    font-size: 2.5rem;
+    color: #c84b31;
+    margin-bottom: 1rem;
+}
+
+.club-offerings__title {
+    color: #c84b31;
+    margin-bottom: 0.5rem;
+}
+
+.club-offerings__description {
+    font-size: 1.1rem;
+}
+
+/* Meeting Schedule Section */
+.meeting-schedule {
+    background-color: #f8f8f8;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.meeting-schedule__title {
+    color: #c84b31;
+    margin-bottom: 1rem;
+}
+
+.meeting-schedule__item {
+    margin: 0.5rem 0;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+/* Events and News Section */
+.events-news {
+    background-color: #ffdb59;
+    padding: 3rem 0;
+}
+
+.events-news__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.events-news__card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.events-news__card:hover {
+    transform: translateY(-5px);
+}
+
+.events-news__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.events-news__content {
+    padding: 1.5rem;
+}
+
+.events-news__title {
+    color: #c84b31;
+    margin-bottom: 0.5rem;
+}
+
+.events-news__date {
+    color: #777;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.events-news__description {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.events-news__link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #c84b31;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.events-news__link:hover {
+    color: #a03e29;
+}
+
+/* ------------------------------------------------------------------------------------------------------------ */
+/*                                         Footer                                                               */
+/* ------------------------------------------------------------------------------------------------------------ */
+
+.footer-container {
+    background-color: #c84b31;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-container li {
+    margin-bottom: 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.footer {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.LeftImages {
+    display: flex;
+    flex-direction: row;
+}
+
+.LeftImages img {
+    width: 50px;
+    height: 50px;
+    padding: 20px;
+    margin-top: 12px;
+}
+
+.RightImage img {
+    width: 70px;
+    height: 70px;
+    padding: 20px;
+    margin-right: 20px;
+    margin-top: 12px;
+}
+
+/* ------------------------------------------------------------------------------------------------------------ */
+/*                                         Responsive Design                                                    */
+/* ------------------------------------------------------------------------------------------------------------ */
+
+@media (max-width: 1000px) {
+    .content-container { 
+        width: 90%; 
+    }
+
+    h1 { 
+        font-size: 2.5rem; 
+    }
+
+    h2 { 
+        font-size: 2rem; 
+    }
+
+    .hero-carousel__title {
+        font-size: 3rem;
+    }
+
+    .club-about__content, 
+    .club-offerings, 
+    .events-news__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero-carousel {
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-container { 
+        width: 95%; 
+    }
+    
+    h1 { 
+        font-size: 2rem; 
+    }
+
+    h2 { 
+        font-size: 1.8rem; 
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .hero-carousel__title {
+        font-size: 2.5rem;
+    }
+
+    .club-about__content, 
+    .club-offerings, 
+    .events-news__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-carousel {
+        height: 300px;
+    }
+    
+    .dropbtn { 
+        font-size: 20px; 
+    }
+
+    .footer { 
+        grid-template-columns: 1fr; 
+        text-align: center; 
+    }
+    
+    img { 
+        max-width: 100%; 
+        height: auto; 
+    }
+}

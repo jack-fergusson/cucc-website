@@ -8,122 +8,210 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-
-    <link href="css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-	<link rel="shortcut icon" type="image/x-icon" href="images/logo.jpg"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/logo.jpg"/>
+    <link rel="stylesheet" href="css/styles-Home.css">
 </head>
 
 <%- include('header.ejs') %>
 
 <body>
-    <div class = "Carousel"></div> 
-        <section class="carousel">
-            <div class="carousel-wrapper">
-                <div class="slider">
-                    <img id="slide-1" src="images/bughouse.jpg" alt="slide1"/>
-                    <img id="slide-2" src="images/chess.jpg" alt="slide2"/>
-                    <img id="slide-3" src="images/stauffer.jpg" alt="slide3"/>
-                </div>
-                <div class="slider-nav">
-                    <a href="#slide-1"></a>
-                    <a href="#slide-2"></a>
-                    <a href="#slide-3"></a>
+
+    <%- include('header.ejs') %>
+    <!-- Enhanced Carousel -->
+    <div class="hero-carousel">
+        <div class="hero-carousel__slides">
+            <div class="hero-carousel__slide hero-carousel__slide--active" style="background-image: url('images/bughouse.jpg')">
+                <div class="hero-carousel__overlay">
+                    <h1 class="hero-carousel__title"><strong>Welcome to Queen's Chess Club</strong></h1>
                 </div>
             </div>
-        </section>
-    <div class="centerer">
-        <div class="width-container">
-            <!-- <div>
-                <img src="/images/stauffer.jpg" style="max-width: 100%;">
-            </div> -->
-
-            <div style = "padding-top: 50px">
-                <hr style="width: 100%">
-                <h1>WELCOME TO QUEENS CHESS CLUB!</h1>
-                <hr style="width: 100%">
+            <div class="hero-carousel__slide" style="background-image: url('images/chess.jpg')">
+                <div class="hero-carousel__overlay">
+                    <h1 class="hero-carousel__title"><strong>Learn, Play, Compete</strong></h1>
+                </div>
             </div>
+            <div class="hero-carousel__slide" style="background-image: url('images/stauffer.jpg')">
+                <div class="hero-carousel__overlay">
+                    <h1 class="hero-carousel__title"><strong>Join Our Community</strong></h1>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-carousel__arrow hero-carousel__arrow--prev">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="hero-carousel__arrow hero-carousel__arrow--next">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+        
+        <div class="hero-carousel__navigation">
+            <div class="hero-carousel__navigation-dot hero-carousel__navigation-dot--active"></div>
+            <div class="hero-carousel__navigation-dot"></div>
+            <div class="hero-carousel__navigation-dot"></div>
+        </div>
+    </div>
 
-            <br>
-            <br>
+    <!-- About section -->
+    <section class="club-about">
+        <div class="content-container">
+            <h2 class="section-title">About Queen's Chess Club</h2>
+            <div class="club-about__content">
+                <div class="club-about__text">
+                    <p>Our mission is to promote the game of chess and create a welcoming community for players of all skill levels.</p>
+                    <p>Whether you're a beginner looking to learn the basics or an experienced player seeking challenging opponents, our club provides a friendly environment to improve your skills and make new friends who share your passion for chess.</p>
+                    <p>We welcome students, faculty, and community members alike. No prior experience is necessary - just bring your enthusiasm and willingness to learn!</p>
+                </div>
+                <img src="images/chess.jpg" alt="Queen's Chess Club members playing" class="club-about__image">
+            </div>
+        </div>
+    </section>
 
-            <div class="grid">
-                <div class="top-left square yellow">
-                    <h2>Come join us at our weekly meetings for some fun casual games!</h2>
+    <!-- What we offer section -->
+    <div class="content-container">
+        <h2 class="section-title">What We Offer</h2>
+        <div class="club-offerings">
+            <div class="club-offerings__card">
+                <div class="club-offerings__icon">
+                    <i class="fas fa-chess-knight"></i>
                 </div>
-                <div class="top-right square red">
-                    <img src="/images/knight.png">
+                <h3 class="club-offerings__title">Weekly Meetups</h3>
+                <p class="club-offerings__description">Join us twice a week for casual games, puzzles, and chess discussions in a relaxed atmosphere. All skill levels welcome!</p>
+            </div>
+            <div class="club-offerings__card">
+                <div class="club-offerings__icon">
+                    <i class="fas fa-trophy"></i>
                 </div>
-                <div class="bottom-left square red">
-                    <img style="transform: scaleX(-1);" src="/images/knight.png">
+                <h3 class="club-offerings__title">Tournaments</h3>
+                <p class="club-offerings__description">Test your skills in our regular tournaments, including our annual Queen's Chess Competition (QCC) with prizes and rated matches.</p>
+            </div>
+            <div class="club-offerings__card">
+                <div class="club-offerings__icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
                 </div>
-                <div class="bottom-right square yellow">
-                    <div>
-                        <h1 style="padding-top: 3%;">Meeting Schedule</h1>
-                        <h2>Wednesday 6-9 Kingston Hall Rm 208</h2>
-                        <h2>Sunday 6-9 Kingston Hall Rm 208</h2>
+                <h3 class="club-offerings__title">Coaching Sessions</h3>
+                <p class="club-offerings__description">Improve your game with our coaching sessions led by experienced players, covering openings, tactics, strategy, and endgames.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Meeting Schedule -->
+    <div class="content-container">
+        <div class="meeting-schedule">
+            <h2 class="meeting-schedule__title">Meeting Schedule</h2>
+            <div class="meeting-schedule__item">Wednesday: 6:00 PM - 9:00 PM, Kingston Hall Room 208</div>
+            <div class="meeting-schedule__item">Sunday: 6:00 PM - 9:00 PM, Kingston Hall Room 208</div>
+        </div>
+    </div>
+
+    <!-- News and Events section -->
+    <section class="events-news">
+        <div class="content-container">
+            <h2 class="section-title">Latest News and Events</h2>
+            <div class="events-news__grid">
+                <div class="events-news__card">
+                    <img src="images/Chess_Competition_Pic.jpg" alt="Queen's Chess Competition" class="events-news__image">
+                    <div class="events-news__content">
+                        <h3 class="events-news__title">Queen's Chess Competition (QCC)</h3>
+                        <span class="events-news__date">March 01, 2025</span>
+                        <p class="events-news__description">Join us for our annual chess tournament open to all skill levels. Compete for prizes and gain valuable competitive experience!</p>
+                        <a href="qcc" class="events-news__link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="events-news__card">
+                    <img src="images/Chess_Coaching.png" alt="Queen's Chess Coaching" class="events-news__image">
+                    <div class="events-news__content">
+                        <h3 class="events-news__title">Chess Coaching Sessions</h3>
+                        <span class="events-news__date">Last Updated: March 20, 2025</span>
+                        <p class="events-news__description">Our spring coaching program is starting soon! Get personalized instruction from experienced players to improve your game.</p>
+                        <a href="coaching" class="events-news__link">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
-
-            <br>
-            <br>
-
-            <hr>
-
-            <h2 class = "centerer" >Latest News and Events</h2>
-
-                <table class="table">
-                    <tr>
-                        <th class="image-container-News-Updates">
-                                <a href="qcc">
-                                    <img src = "images/Chess_Competition_Pic" alt = "Queens Chess Competition" class="newsimg"> <!--Chang picture to more appropriate picture-->
-                                </a>
-                        </th>
-                        <th class="image-container-News-Updates">
-                                <a href = "coaching" class="newsimg">
-                                    <img src = "images/Chess_Coaching.png" alt = "Queens Chess Coaching" class="newsimg"> <!--Chang picture to more appropriate picture-->
-                                </a>
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h4>Queens Chess Competition (QCC)</h4>
-                        </td>
-                        <td>
-                            <h4>Queens Chess Club Coaching</h4>
-                        </td>
-                    </tr>
-                </table>
-
-            <br>
-            <h5 class ="centerer">Click on the images for more information!</h5>
-            <br>
-            <hr>
-
-            <br>
-            <br>
-
         </div>
-    </div>
+    </section>
+
+    <%- include('footer.ejs') %>
 
 
-
-
-
-
-
+    <script>
+        // Carousel functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.hero-carousel__slide');
+            const dots = document.querySelectorAll('.hero-carousel__navigation-dot');
+            const prevBtn = document.querySelector('.hero-carousel__arrow--prev');
+            const nextBtn = document.querySelector('.hero-carousel__arrow--next');
+            let currentSlide = 0;
+            let slideInterval;
             
-            <hr>
+            // Initialize the carousel
+            function startCarousel() {
+                slideInterval = setInterval(nextSlide, 5000);
+            }
+            
+            // Show a specific slide
+            function showSlide(index) {
+                // Remove active class from all slides and dots
+                slides.forEach(slide => slide.classList.remove('hero-carousel__slide--active'));
+                dots.forEach(dot => dot.classList.remove('hero-carousel__navigation-dot--active'));
+                
+                // Add active class to current slide and dot
+                slides[index].classList.add('hero-carousel__slide--active');
+                dots[index].classList.add('hero-carousel__navigation-dot--active');
+                
+                // Update current slide index
+                currentSlide = index;
+            }
+            
+            // Next slide function
+            function nextSlide() {
+                let nextIndex = currentSlide + 1;
+                if (nextIndex >= slides.length) {
+                    nextIndex = 0;
+                }
+                showSlide(nextIndex);
+            }
+            
+            // Previous slide function
+            function prevSlide() {
+                let prevIndex = currentSlide - 1;
+                if (prevIndex < 0) {
+                    prevIndex = slides.length - 1;
+                }
+                showSlide(prevIndex);
+            }
+            
+            // Event listeners for buttons
+            prevBtn.addEventListener('click', function() {
+                clearInterval(slideInterval);
+                prevSlide();
+                startCarousel();
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                clearInterval(slideInterval);
+                nextSlide();
+                startCarousel();
+            });
+            
+            // Event listeners for dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    clearInterval(slideInterval);
+                    showSlide(index);
+                    startCarousel();
+                });
+            });
+            
+            // Start the carousel
+            startCarousel();
+        });
+    </script>
 
-            <br>
-            <br>
-
-        </div>
-    </div>
-
-    <%- include('footer.ejs'); %>
 
 </body>
+
+
+
 </html>
