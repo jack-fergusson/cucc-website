@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapid Open 2025 - Queen's Chess Club</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/tournament-page.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/logo.jpg"/>
+</head>
+
+<%- include('header.ejs') %>
+
+<body>
+    <div class="tournament-hero" style="background-color: #e9e9e9;">
+        <div class="tournament-hero-overlay">
+            <div class="tournament-hero-content">
+                <h1>Queen's Chess Rapid Open 2025</h1>
+                <div class="tournament-date-badge">Oct 25, 2025 · 10:00 AM</div>
+                <p class="tournament-tagline">Fast-paced over-the-board action · 5 rounds · 10+5</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="centerer">
+        <div class="tournament-container">
+            <div class="tournament-info-panel">
+                <div class="tournament-info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="tournament-info-content">
+                        <h3>Location</h3>
+                        <p>Stauffer Library · Room 014<br>Queen's University, Kingston</p>
+                    </div>
+                </div>
+                <div class="tournament-info-item">
+                    <i class="far fa-calendar-alt"></i>
+                    <div class="tournament-info-content">
+                        <h3>Date & Time</h3>
+                        <p>Saturday, Oct 25, 2025<br>Start 10:00 AM</p>
+                    </div>
+                </div>
+                <div class="tournament-info-item">
+                    <i class="fas fa-chess-knight"></i>
+                    <div class="tournament-info-content">
+                        <h3>Format</h3>
+                        <p>5 Round Swiss<br>Time Control: 10 + 5</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tournament-section">
+                <h2>Overview</h2>
+                <p>🚨🚨 Looking for a chance to play over-the-board chess in a tournament setting? Queen’s Chess Club is hosting our first tournament of the year, the Rapid Open on October 25th! There will be 5 rounds. The event is open to any students or community members. Register using the link below. We will also accept drop-in registrations on the day of. Let’s play some chess!</p>
+            </div>
+
+            <div class="tournament-section">
+                <h2>Registration & Pricing</h2>
+                <div class="tournament-details-grid">
+                    <div class="tournament-detail-card">
+                        <h3>Entry Fees</h3>
+                        <ul>
+                            <li>Early bird (until Oct 18, 11:59 PM)
+                                <ul>
+                                    <li>Queen's students: $10</li>
+                                    <li>Community players: $15</li>
+                                </ul>
+                            </li>
+                            <li>Late bird (after Oct 18)
+                                <ul>
+                                    <li>Queen's students: $15</li>
+                                    <li>Community players: $20</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tournament-detail-card">
+                        <h3>Prizes</h3>
+                        <ul>
+                            <li>Crown: $75</li>
+                            <li>U1600: $50</li>
+                        </ul>
+                    </div>
+                    <div class="tournament-detail-card">
+                        <h3>Payment</h3>
+                        <ul>
+                            <li>Pay on-site (cash)</li>
+                            <li>Or via e-transfer through the registration form</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tournament-registration-cta">
+                    <h2 class="registration-title">Register for the Rapid Open</h2>
+                    <div class="registration-flex-container">
+                        <div class="registration-button-container">
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfoJk-Qvt-AK11hfWnLWwtChuMdlSkYOU8L1Vwwj4ln1OHAvg/viewform" target="_blank" class="tournament-register-button">Register Now</a>
+                            <p class="tournament-registration-deadline">Early bird ends Oct 18 at 11:59 PM</p>
+                        </div>
+                        <div class="registration-qr-container">
+                            <img src="images/QCC_QR_code.png" alt="Registration QR Code" class="registration-qr-code">
+                            <p>Scan to register</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="small-print">Registration form hosted on Google Forms.</p>
+            </div>
+
+            <div class="tournament-section tournament-contact-section">
+                <h2>Contact Us</h2>
+                <p>Questions? Reach out to the Queen's Chess Club:</p>
+                <div class="tournament-contact-cards">
+                    <div class="tournament-contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>queensuchess@outlook.com</p>
+                    </div>
+                    <div class="tournament-contact-card">
+                        <i class="fab fa-discord"></i>
+                        <h3>Discord</h3>
+                        <p>Join our server: <a href="https://discord.gg/queenschess">discord.gg/queenschess</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+    <%- include('footer.ejs'); %>
+
+</body>
+</html>
+

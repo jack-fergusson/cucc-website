@@ -137,6 +137,10 @@ app.get("/QCC2025", function(req, res){
   res.render("QCC2025");
 });
 
+app.get("/RapidOpen2025", function(req, res){
+  res.render("RapidOpen2025");
+});
+
 
 app.post("/signup", function(req,res) {
   // console.log(req.body.teamName);
