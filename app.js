@@ -141,6 +141,10 @@ app.get("/RapidOpen2025", function(req, res){
   res.render("RapidOpen2025");
 });
 
+app.get("/CUCCQualifiers2025", function(req, res){
+  res.render("CUCCQualifiers2025");
+});
+
 
 app.post("/signup", function(req,res) {
   // console.log(req.body.teamName);
