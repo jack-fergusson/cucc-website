@@ -145,6 +145,10 @@ app.get("/CUCCQualifiers2025", function(req, res){
   res.render("CUCCQualifiers2025");
 });
 
+app.get("/CUCC2026", function(req, res){
+  res.render("CUCC2026");
+});
+
 
 app.post("/signup", function(req,res) {
   // console.log(req.body.teamName);
