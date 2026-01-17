@@ -6,10 +6,14 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const _ = require("lodash");
 const { MongoClient, ServerApiVersion } = require('mongodb');
+const http = require("http");
+const { Server } = require("socket.io");
 require("dotenv").config();
 
 // initialize the app
 const app = express();
+const server = http.createServer(app);
+const io = new Server(server);
 
 // set the view engine and licate the views folder
 app.set('view engine', 'ejs');
@@ -71,6 +75,19 @@ const School = mongoose.model(
   "School",
   schoolSchema
 );
+
+// Chat message schema
+const chatMessageSchema = {
+  username: String,
+  message: String,
+  timestamp: { type: Date, default: Date.now }
+}
+
+const ChatMessage = mongoose.model(
+  "ChatMessage",
+  chatMessageSchema
+);
+
 
 
 app.get("/", function(req, res) {
@@ -228,10 +245,93 @@ app.get("/robots.txt", function(req, res){
   res.sendFile(__dirname + "/robots.txt");
 });
 
+// Admin route to clear all chat messages
+app.get("/clearChat", function(req, res){
+  ChatMessage.deleteMany({})
+    .then(function(result) {
+      console.log("Cleared " + result.deletedCount + " chat messages");
+      res.send("Successfully cleared " + result.deletedCount + " chat messages");
+    })
+    .catch(function(err) {
+      console.log("Error clearing messages: " + err);
+      res.status(500).send("Error clearing messages: " + err);
+    });
+});
+
+// Socket.io connection handling
+io.on("connection", function(socket) {
+  console.log("User connected: " + socket.id);
+
+  // Load and send message history when user connects
+  ChatMessage.find({})
+    .sort({ timestamp: 1 }) // Sort ascending (oldest first) so no need to reverse
+    .exec()
+    .then(function(messages) {
+      socket.emit("messageHistory", messages);
+    })
+    .catch(function(err) {
+      console.log("Error loading message history: " + err);
+    });
+
+  // Handle new chat messages
+  socket.on("chatMessage", function(data) {
+    // Basic validation
+    if (!data.username || !data.message) {
+      socket.emit("error", "Username and message are required");
+      return;
+    }
+
+    // Trim and validate message length
+    const trimmedMessage = data.message.trim();
+    const trimmedUsername = data.username.trim();
+
+    if (trimmedMessage.length === 0) {
+      socket.emit("error", "Message cannot be empty");
+      return;
+    }
+
+    if (trimmedMessage.length > 500) {
+      socket.emit("error", "Message is too long (max 500 characters)");
+      return;
+    }
+
+    if (trimmedUsername.length > 30) {
+      socket.emit("error", "Username is too long (max 30 characters)");
+      return;
+    }
+
+    // Create and save message
+    const chatMessage = new ChatMessage({
+      username: trimmedUsername,
+      message: trimmedMessage,
+      timestamp: new Date()
+    });
+
+    chatMessage.save()
+      .then(function() {
+        // Broadcast message to all connected clients
+        io.emit("newMessage", {
+          username: trimmedUsername,
+          message: trimmedMessage,
+          timestamp: chatMessage.timestamp
+        });
+      })
+      .catch(function(err) {
+        console.log("Error saving message: " + err);
+        socket.emit("error", "Failed to send message");
+      });
+  });
+
+  // Handle disconnection
+  socket.on("disconnect", function() {
+    console.log("User disconnected: " + socket.id);
+  });
+});
+
 let port = process.env.PORT;
 if (port == null || port == "") {
   port = 3000;
 }
-app.listen(port, function() {
-  console.log("Server has started successfully");
+server.listen(port, function() {
+  console.log("Server has started successfully on port " + port);
 });

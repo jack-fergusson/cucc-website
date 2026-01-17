@@ -13,6 +13,168 @@
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 	<link rel="shortcut icon" type="image/x-icon" href="images/logo.jpg"/>
+	<style>
+		.chat-container {
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+			width: 350px;
+			max-width: calc(100vw - 40px);
+			height: 500px;
+			max-height: calc(100vh - 40px);
+			background: white;
+			border-radius: 10px;
+			box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+			display: flex;
+			flex-direction: column;
+			z-index: 1000;
+			transition: transform 0.3s ease;
+		}
+
+		.chat-container.collapsed {
+			height: 50px;
+		}
+
+		.chat-header {
+			background: #2c3e50;
+			color: white;
+			padding: 15px;
+			border-radius: 10px 10px 0 0;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			cursor: pointer;
+		}
+
+		.chat-header h3 {
+			margin: 0;
+			font-size: 1.1rem;
+		}
+
+		.chat-toggle {
+			background: none;
+			border: none;
+			color: white;
+			font-size: 1.2rem;
+			cursor: pointer;
+		}
+
+		.chat-body {
+			flex: 1;
+			overflow-y: auto;
+			padding: 15px;
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			min-height: 0;
+		}
+
+		#chatMessages {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+		}
+
+		.chat-container.collapsed .chat-body {
+			display: none;
+		}
+
+		.chat-message {
+			padding: 8px 12px;
+			border-radius: 8px;
+			background: #f0f0f0;
+			max-width: 85%;
+			word-wrap: break-word;
+			margin-bottom: 0;
+			align-self: flex-start;
+		}
+
+		.chat-message.own-message {
+			background: #3498db;
+			color: white;
+			align-self: flex-end;
+		}
+
+		.chat-message-header {
+			font-weight: bold;
+			font-size: 0.85rem;
+			margin-bottom: 4px;
+		}
+
+		.chat-message-text {
+			font-size: 0.9rem;
+		}
+
+		.chat-message-time {
+			font-size: 0.7rem;
+			opacity: 0.7;
+			margin-top: 4px;
+		}
+
+		.chat-input-area {
+			padding: 15px;
+			border-top: 1px solid #ddd;
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+		}
+
+		.chat-container.collapsed .chat-input-area {
+			display: none;
+		}
+
+		.chat-username-input {
+			padding: 8px;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			font-size: 0.9rem;
+		}
+
+		.chat-input-row {
+			display: flex;
+			gap: 8px;
+		}
+
+		.chat-message-input {
+			flex: 1;
+			padding: 8px;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			font-size: 0.9rem;
+			resize: none;
+		}
+
+		.chat-send-button {
+			padding: 8px 15px;
+			background: #2c3e50;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 0.9rem;
+		}
+
+		.chat-send-button:hover {
+			background: #34495e;
+		}
+
+		.chat-error {
+			background: #e74c3c;
+			color: white;
+			padding: 10px;
+			border-radius: 5px;
+			margin-bottom: 10px;
+			font-size: 0.85rem;
+		}
+
+		@media (max-width: 768px) {
+			.chat-container {
+				width: calc(100vw - 20px);
+				right: 10px;
+				bottom: 10px;
+			}
+		}
+	</style>
 </head>
 
 <%- include('header.ejs') %>
@@ -45,6 +207,158 @@
     <br>
 
     <%- include('footer.ejs'); %>
+
+    <!-- Chat Container -->
+    <div class="chat-container" id="chatContainer">
+        <div class="chat-header" onclick="toggleChat()">
+            <h3><i class="fas fa-comments"></i> Live Chat</h3>
+            <button class="chat-toggle" id="chatToggle">
+                <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div id="chatMessages"></div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" class="chat-username-input" id="chatUsername" placeholder="Enter your username" maxlength="30">
+            <div class="chat-input-row">
+                <textarea class="chat-message-input" id="chatMessageInput" placeholder="Type your message..." rows="2" maxlength="500"></textarea>
+                <button class="chat-send-button" onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Socket.io Client -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        const chatContainer = document.getElementById('chatContainer');
+        const chatBody = document.getElementById('chatBody');
+        const chatMessages = document.getElementById('chatMessages');
+        const chatMessageInput = document.getElementById('chatMessageInput');
+        const chatUsername = document.getElementById('chatUsername');
+        const chatToggle = document.getElementById('chatToggle');
+
+        // Load username from localStorage
+        const savedUsername = localStorage.getItem('chessChatUsername');
+        if (savedUsername) {
+            chatUsername.value = savedUsername;
+        }
+
+        // Save username to localStorage when changed
+        chatUsername.addEventListener('change', function() {
+            localStorage.setItem('chessChatUsername', chatUsername.value);
+        });
+
+        let isCollapsed = false;
+
+        function toggleChat() {
+            isCollapsed = !isCollapsed;
+            chatContainer.classList.toggle('collapsed', isCollapsed);
+            chatToggle.innerHTML = isCollapsed ? '<i class="fas fa-chevron-up"></i>' : '<i class="fas fa-chevron-down"></i>';
+        }
+
+        function formatTime(timestamp) {
+            const date = new Date(timestamp);
+            const hours = date.getHours().toString().padStart(2, '0');
+            const minutes = date.getMinutes().toString().padStart(2, '0');
+            return `${hours}:${minutes}`;
+        }
+
+        function addMessage(username, message, timestamp, isOwn = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${isOwn ? 'own-message' : ''}`;
+            
+            const header = document.createElement('div');
+            header.className = 'chat-message-header';
+            header.textContent = username;
+            
+            const text = document.createElement('div');
+            text.className = 'chat-message-text';
+            text.textContent = message;
+            
+            const time = document.createElement('div');
+            time.className = 'chat-message-time';
+            time.textContent = formatTime(timestamp);
+            
+            messageDiv.appendChild(header);
+            messageDiv.appendChild(text);
+            messageDiv.appendChild(time);
+            
+            chatMessages.appendChild(messageDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function showError(message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'chat-error';
+            errorDiv.textContent = message;
+            chatMessages.appendChild(errorDiv);
+            setTimeout(() => errorDiv.remove(), 5000);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function sendMessage() {
+            const username = chatUsername.value.trim();
+            const message = chatMessageInput.value.trim();
+
+            if (!username) {
+                showError('Please enter a username');
+                chatUsername.focus();
+                return;
+            }
+
+            if (!message) {
+                return;
+            }
+
+            // Save username
+            localStorage.setItem('chessChatUsername', username);
+
+            // Send message to server
+            socket.emit('chatMessage', {
+                username: username,
+                message: message
+            });
+
+            // Clear input
+            chatMessageInput.value = '';
+        }
+
+        // Send message on Enter (but allow Shift+Enter for new line)
+        chatMessageInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+
+        // Socket event listeners
+        socket.on('messageHistory', function(messages) {
+            chatMessages.innerHTML = '';
+            messages.forEach(function(msg) {
+                const isOwn = msg.username === chatUsername.value;
+                addMessage(msg.username, msg.message, msg.timestamp, isOwn);
+            });
+        });
+
+        socket.on('newMessage', function(data) {
+            const isOwn = data.username === chatUsername.value;
+            addMessage(data.username, data.message, data.timestamp, isOwn);
+        });
+
+        socket.on('error', function(error) {
+            showError(error);
+        });
+
+        // Auto-scroll to bottom when new messages arrive
+        const observer = new MutationObserver(function() {
+            chatBody.scrollTop = chatBody.scrollHeight;
+        });
+        observer.observe(chatMessages, { childList: true });
+    </script>
 
 </body>
 </html>
