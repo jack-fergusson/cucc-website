@@ -166,6 +166,10 @@ app.get("/CUCC2026", function(req, res){
   res.render("CUCC2026");
 });
 
+app.get("/BlitzMarch2026", function(req, res){
+  res.render("BlitzMarch2026");
+});
+
 
 app.post("/signup", function(req,res) {
   // console.log(req.body.teamName);
