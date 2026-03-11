@@ -3,491 +3,416 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CUCC 2026 - Queen's Chess Club</title>
+    <title>CUCC 2026 – Queen's Chess Club</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-
-    <link href="css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-	<link rel="shortcut icon" type="image/x-icon" href="images/logo.jpg"/>
-	<style>
-		.chat-container {
-			position: fixed;
-			bottom: 20px;
-			right: 20px;
-			width: 350px;
-			max-width: calc(100vw - 40px);
-			height: 500px;
-			max-height: calc(100vh - 40px);
-			background: white;
-			border-radius: 10px;
-			box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-			display: flex;
-			flex-direction: column;
-			z-index: 1000;
-			transition: transform 0.3s ease;
-		}
+    <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/logo.jpg"/>
 
-		.chat-container.collapsed {
-			height: 50px;
-		}
+    <style>
+        /* ---- Recap Photo Carousel ---- */
+        .recap-carousel-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            background: #111;
+        }
 
-		.chat-header {
-			background: #2c3e50;
-			color: white;
-			padding: 15px;
-			border-radius: 10px 10px 0 0;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			cursor: pointer;
-		}
+        .recap-carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
 
-		.chat-header h3 {
-			margin: 0;
-			font-size: 1.1rem;
-			color: white;
-		}
+        .recap-carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
 
-		.chat-toggle {
-			background: none;
-			border: none;
-			color: white;
-			font-size: 1.2rem;
-			cursor: pointer;
-		}
+        .recap-carousel-slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            object-position: center center;
+            display: block;
+        }
 
-		.chat-body {
-			flex: 1;
-			overflow-y: auto;
-			padding: 15px;
-			display: flex;
-			flex-direction: column;
-			gap: 10px;
-			min-height: 0;
-		}
+        .recap-carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.72));
+            color: white;
+            padding: 40px 24px 16px;
+            font-family: 'Vollkorn', serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            letter-spacing: 0.5px;
+        }
 
-		#chatMessages {
-			display: flex;
-			flex-direction: column;
-			gap: 10px;
-		}
+        .recap-carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.92);
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            font-size: 1rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+            color: #2d2926;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+        }
 
-		.chat-container.collapsed .chat-body {
-			display: none;
-		}
+        .recap-carousel-arrow:hover {
+            background: white;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+            transform: translateY(-50%) scale(1.08);
+        }
 
-		.chat-message {
-			padding: 8px 12px;
-			border-radius: 8px;
-			background: #f0f0f0;
-			max-width: 85%;
-			word-wrap: break-word;
-			margin-bottom: 0;
-			align-self: flex-start;
-		}
+        .recap-carousel-prev { left: 14px; }
+        .recap-carousel-next { right: 14px; }
 
-		.chat-message.own-message {
-			background: #3498db;
-			color: white;
-			align-self: flex-end;
-		}
+        .recap-carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 14px;
+        }
 
-		.chat-message-header {
-			font-weight: bold;
-			font-size: 0.85rem;
-			margin-bottom: 4px;
-		}
+        .recap-carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ccc;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
 
-		.chat-message-text {
-			font-size: 0.9rem;
-		}
+        .recap-carousel-dot.active {
+            background: #c84b31;
+            transform: scale(1.3);
+        }
 
-		.chat-message-time {
-			font-size: 0.7rem;
-			opacity: 0.7;
-			margin-top: 4px;
-		}
+        /* ---- MVP Cards (text-only) ---- */
+        .mvp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
 
-		.chat-input-area {
-			padding: 15px;
-			border-top: 1px solid #ddd;
-			display: flex;
-			flex-direction: column;
-			gap: 10px;
-		}
+        .mvp-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid #c84b31;
+        }
 
-		.chat-container.collapsed .chat-input-area {
-			display: none;
-		}
+        .mvp-card-photo {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
 
-		.chat-username-input {
-			padding: 8px;
-			border: 1px solid #ddd;
-			border-radius: 5px;
-			font-size: 0.9rem;
-		}
+        .mvp-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 32px rgba(0,0,0,0.12);
+        }
 
-		.chat-input-row {
-			display: flex;
-			gap: 8px;
-		}
+        .mvp-card-body {
+            padding: 24px 26px 28px;
+            border-left: 5px solid #c84b31;
+        }
 
-		.chat-message-input {
-			flex: 1;
-			padding: 8px;
-			border: 1px solid #ddd;
-			border-radius: 5px;
-			font-size: 0.9rem;
-			resize: none;
-		}
+        .mvp-stat {
+            font-family: 'Vollkorn', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #c84b31;
+            line-height: 1;
+            margin-bottom: 14px;
+        }
 
-		.chat-send-button {
-			padding: 8px 15px;
-			background: #2c3e50;
-			color: white;
-			border: none;
-			border-radius: 5px;
-			cursor: pointer;
-			font-size: 0.9rem;
-		}
+        .mvp-badge {
+            display: inline-block;
+            background: #ffcc29;
+            color: #2d2926;
+            padding: 4px 13px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-family: 'League Spartan', sans-serif;
+            letter-spacing: 0.5px;
+        }
 
-		.chat-send-button:hover {
-			background: #34495e;
-		}
+        .mvp-card h3 {
+            font-size: 1.4rem;
+            color: #2d2926;
+            margin: 0 0 4px 0;
+            font-family: 'Vollkorn', serif;
+            font-weight: 700;
+            text-align: left;
+        }
 
-		.chat-error {
-			background: #e74c3c;
-			color: white;
-			padding: 10px;
-			border-radius: 5px;
-			margin-bottom: 10px;
-			font-size: 0.85rem;
-		}
+        .mvp-team {
+            font-size: 0.88rem;
+            color: #999;
+            margin: 0 0 14px 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-style: italic;
+        }
 
-		@media (max-width: 768px) {
-			.chat-container {
-				width: calc(100vw - 20px);
-				right: 10px;
-				bottom: 10px;
-				height: 400px;
-				max-height: calc(100vh - 20px);
-			}
+        .mvp-desc {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.75;
+            margin: 0;
+            font-style: normal;
+            text-align: left;
+        }
 
-			/* Remove all padding/margins to maximize space */
-			html, body {
-				padding: 0 !important;
-				margin: 0 !important;
-				overflow-x: hidden !important;
-				width: 100% !important;
-				max-width: 100% !important;
-			}
+        @media (max-width: 768px) {
+            .tournament-hero {
+                margin-top: 70px;
+            }
 
-			/* Make containers full width on mobile */
-			.centerer {
-				padding: 0 !important;
-				margin: 0 !important;
-				width: 100% !important;
-				max-width: 100% !important;
-				overflow-x: visible !important;
-			}
+            .recap-carousel-slide img {
+                height: 280px;
+            }
 
-			.width-container {
-				width: 100% !important;
-				max-width: 100% !important;
-				padding: 0 !important;
-				margin: 0 !important;
-			}
+            .mvp-stat {
+                font-size: 2.2rem;
+            }
+        }
 
-			/* Hide/minimize header to maximize board */
-			.width-container h1 {
-				font-size: 0.85rem !important;
-				padding: 3px 5px !important;
-				margin-bottom: 2px !important;
-				line-height: 1.2;
-			}
+        @media (max-width: 480px) {
+            .recap-carousel-slide img {
+                height: 220px;
+            }
 
-			hr {
-				margin: 2px 0 !important;
-				display: none;
-			}
+            .mvp-card-photo {
+                height: 200px;
+            }
 
-			.width-container[style*="margin-top: 40px"] {
-				margin-top: 0 !important;
-				margin-bottom: 0 !important;
-				padding: 0 !important;
-				width: 100% !important;
-				max-width: 100% !important;
-				overflow-x: visible !important;
-			}
-
-			.width-container[style*="margin-top: 40px"] h2 {
-				font-size: 0.75rem !important;
-				margin-bottom: 2px !important;
-				padding: 0 5px;
-				line-height: 1.2;
-			}
-
-			.width-container[style*="margin-top: 40px"] p {
-				font-size: 0.65rem !important;
-				margin-bottom: 2px !important;
-				padding: 0 5px;
-				line-height: 1.2;
-			}
-
-			/* Make iframe take up entire screen minus minimal header */
-			.width-container[style*="margin-top: 40px"] div[style*="padding-bottom: 20px"] {
-				padding: 0 !important;
-				margin: 0 !important;
-				width: 100vw !important;
-				max-width: 100vw !important;
-				position: relative;
-				left: 50% !important;
-				right: auto !important;
-				transform: translateX(-50%) !important;
-				margin-left: 0 !important;
-				margin-right: 0 !important;
-			}
-
-			.width-container[style*="margin-top: 40px"] iframe {
-				width: 100vw !important;
-				max-width: 100vw !important;
-				height: calc(100vh - 80px) !important;
-				min-height: calc(100vh - 80px) !important;
-				aspect-ratio: unset !important;
-				display: block !important;
-				margin: 0 !important;
-				padding: 0 !important;
-			}
-
-			/* Add bottom padding for chat */
-			body > .centerer {
-				padding-bottom: 450px;
-			}
-		}
-
-		@media (max-width: 480px) {
-			.width-container h1 {
-				font-size: 0.75rem !important;
-			}
-
-			.width-container[style*="margin-top: 40px"] h2 {
-				font-size: 0.7rem !important;
-			}
-
-			.width-container[style*="margin-top: 40px"] p {
-				font-size: 0.6rem !important;
-			}
-
-			.width-container[style*="margin-top: 40px"] div[style*="padding-bottom: 20px"] {
-				width: 100vw !important;
-				max-width: 100vw !important;
-				left: 50% !important;
-				transform: translateX(-50%) !important;
-			}
-
-			.width-container[style*="margin-top: 40px"] iframe {
-				width: 100vw !important;
-				max-width: 100vw !important;
-				height: calc(100vh - 70px) !important;
-				min-height: calc(100vh - 70px) !important;
-			}
-
-			.chat-container {
-				height: 350px;
-			}
-
-			body > .centerer {
-				padding-bottom: 400px;
-			}
-		}
-	</style>
+            .mvp-card-body {
+                padding: 18px 18px 22px;
+            }
+        }
+    </style>
 </head>
 
 <%- include('header.ejs') %>
 
 <body>
-    <div class="centerer">
-        <div class="width-container">
-            <h1>2026 Canadian University Chess Championship</h1>
-        </div>
 
-        <hr>
-
-        <div class="width-container" style="margin-top: 40px; margin-bottom: 40px;">
-            <h2 style="text-align: center; margin-bottom: 20px;">Team D Live Games</h2>
-            <p style="text-align: center; margin-bottom: 20px; font-size: 1.1rem;">
-                Canadian University Chess Championship 2026 | U1800 | Round 2
-            </p>
-            <div style="max-width: 100%; margin: 0 auto; padding-bottom: 20px;">
-                <iframe 
-                    src="https://lichess.org/embed/broadcast/canadian-university-chess-championship-2026--u1800/round-2/0NZLEuwy" 
-                    style="width: 100%; aspect-ratio: 4/3.15; display: block;" 
-                    frameborder="0">
-                </iframe>
+    <!-- Hero Banner -->
+    <div class="tournament-hero" style="background-image: linear-gradient(rgba(0,0,0,0.28), rgba(0,0,0,0.65)), url('images/cucc_2026/group_photo.png'); background-size: cover; background-position: center center;">
+        <div class="tournament-hero-overlay" style="background: none;">
+            <div class="tournament-hero-content">
+                <h1 style="color: white;">CUCC 2026</h1>
+                <div class="tournament-date-badge">January 16–18, 2026 &middot; Toronto, ON</div>
+                <p class="tournament-tagline">Queen's Chess Club on the national stage</p>
             </div>
         </div>
-
     </div>
-    <br>
-    <br>
-    <br>
 
+    <div class="centerer">
+        <div class="tournament-container" style="margin-top: 40px; margin-bottom: 60px;">
+
+            <!-- Congratulations Banner -->
+            <div class="congratulations-banner">
+                <div class="trophy-icon"><i class="fas fa-trophy"></i></div>
+                <div class="banner-text">
+                    <h3>Tournament Recap</h3>
+                    <p>Queen's Chess Club sent four teams to CUCC 2026 in Toronto. Here are the highlights from a memorable weekend of chess!</p>
+                </div>
+            </div>
+
+            <!-- Quick Info Panel -->
+            <div class="tournament-info-panel">
+                <div class="tournament-info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="tournament-info-content">
+                        <h3>Location</h3>
+                        <p>Hart House, University of Toronto<br>7 Hart House Circle, Toronto, ON</p>
+                    </div>
+                </div>
+                <div class="tournament-info-item">
+                    <i class="far fa-calendar-alt"></i>
+                    <div class="tournament-info-content">
+                        <h3>Dates</h3>
+                        <p>Friday January 16th to<br>Sunday January 18th, 2026</p>
+                    </div>
+                </div>
+                <div class="tournament-info-item">
+                    <i class="fas fa-chess-knight"></i>
+                    <div class="tournament-info-content">
+                        <h3>Format</h3>
+                        <p>5 rounds · Classical chess<br>90 minutes + 30s increment</p>
+                    </div>
+                </div>
+                <div class="tournament-info-item">
+                    <i class="fas fa-university"></i>
+                    <div class="tournament-info-content">
+                        <h3>Host</h3>
+                        <p>Hart House Chess Club<br>University of Toronto</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photo Carousel -->
+            <div class="tournament-section">
+                <h2>Team Photos</h2>
+                <div class="recap-carousel-wrapper">
+                    <div class="recap-carousel-slides" id="recapSlides">
+                        <div class="recap-carousel-slide">
+                            <img src="images/cucc_2026/group_photo.png" alt="Queen's Chess Club group photo at CUCC 2026">
+                            <div class="recap-carousel-caption">Queen's Chess Club at CUCC 2026 — Hart House, Toronto</div>
+                        </div>
+                        <div class="recap-carousel-slide">
+                            <img src="images/cucc_2026/team_photo_1.JPEG" alt="Team photo">
+                            <div class="recap-carousel-caption">Ready for battle</div>
+                        </div>
+                        <div class="recap-carousel-slide">
+                            <img src="images/cucc_2026/team_photo_2.JPEG" alt="Team photo">
+                            <div class="recap-carousel-caption">Representing Queen's University</div>
+                        </div>
+                        <div class="recap-carousel-slide">
+                            <img src="images/cucc_2026/team_photo_3.jpg" alt="Team photo" style="object-position: center 38%;">
+                            <div class="recap-carousel-caption">Competing at the national level</div>
+                        </div>
+                        <div class="recap-carousel-slide">
+                            <img src="images/cucc_2026/team_photo_4.jpg" alt="Team photo" style="object-position: center top;">
+                            <div class="recap-carousel-caption">The team in action</div>
+                        </div>
+                        <div class="recap-carousel-slide">
+                            <img src="images/cucc_2026/amr_winner.JPEG" alt="Amr Mohamed — perfect score 5/5" style="object-position: center top;">
+                            <div class="recap-carousel-caption">Amr Mohamed — Perfect 5/5!</div>
+                        </div>
+                        <div class="recap-carousel-slide">
+                            <img src="images/cucc_2026/joey_winner.JPEG" alt="Celebrating the results" style="object-position: center 10%;">
+                            <div class="recap-carousel-caption">Celebrating the results</div>
+                        </div>
+                    </div>
+                    <button class="recap-carousel-arrow recap-carousel-prev" onclick="recapPrevSlide()" aria-label="Previous photo">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="recap-carousel-arrow recap-carousel-next" onclick="recapNextSlide()" aria-label="Next photo">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="recap-carousel-dots" id="recapDots"></div>
+            </div>
+
+            <!-- MVP Section -->
+            <div class="tournament-section" style="border-bottom: none;">
+                <h2>Tournament MVPs</h2>
+                <div class="mvp-grid">
+
+                    <div class="mvp-card">
+                        <img class="mvp-card-photo" src="images/cucc_2026/amr_solo.png" alt="Amr Mohamed">
+                        <div class="mvp-card-body">
+                            <div class="mvp-stat">5/5</div>
+                            <span class="mvp-badge">⭐ Perfect Score</span>
+                            <h3>Amr Mohamed</h3>
+                            <p class="mvp-team">Team C &middot; Board 3</p>
+                            <p class="mvp-desc">Amr was the standout individual performer of CUCC 2026, finishing with a flawless <strong>5 out of 5 score</strong> — the only perfect score of the tournament. A remarkable display of precision and composure across every round.</p>
+                        </div>
+                    </div>
+
+                    <div class="mvp-card">
+                        <img class="mvp-card-photo" src="images/cucc_2026/mohammed_solo.png" alt="Mohammed Faizy">
+                        <div class="mvp-card-body">
+                            <div class="mvp-stat" style="font-size: 1.9rem; line-height: 1.2;">WFM<br>Draw</div>
+                            <span class="mvp-badge">🎯 Top Performance</span>
+                            <h3>Mohammed Faizy</h3>
+                            <p class="mvp-team">Team A &middot; Board 3</p>
+                            <p class="mvp-desc">In one of the tournament's most impressive individual results, Mohammed held a draw against <strong>WFM Cindy Qiao</strong> — a titled player. A result that demonstrates real fighting spirit and tactical sharpness against higher-level competition.</p>
+                        </div>
+                    </div>
+
+                    <div class="mvp-card">
+                        <img class="mvp-card-photo" src="images/cucc_2026/idan_solo.png" alt="Idan Fish">
+                        <div class="mvp-card-body">
+                            <div class="mvp-stat">+300</div>
+                            <span class="mvp-badge">📈 Most Improved</span>
+                            <h3>Idan Fish</h3>
+                            <p class="mvp-team">Team A &middot; Board 4</p>
+                            <p class="mvp-desc">Idan entered the Crown section rated just <strong>1273 CFC</strong> and left with nearly <strong>300 rating points gained</strong>. Competing against significantly higher-rated opponents throughout all five rounds, his performance was nothing short of phenomenal.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <br>
+    <br>
     <%- include('footer.ejs'); %>
 
-    <!-- Chat Container -->
-    <div class="chat-container" id="chatContainer">
-        <div class="chat-header" onclick="toggleChat()">
-            <h3><i class="fas fa-comments"></i> Live Chat</h3>
-            <button class="chat-toggle" id="chatToggle">
-                <i class="fas fa-chevron-down"></i>
-            </button>
-        </div>
-        <div class="chat-body" id="chatBody">
-            <div id="chatMessages"></div>
-        </div>
-        <div class="chat-input-area">
-            <input type="text" class="chat-username-input" id="chatUsername" placeholder="Enter your username" maxlength="30">
-            <div class="chat-input-row">
-                <textarea class="chat-message-input" id="chatMessageInput" placeholder="Type your message..." rows="2" maxlength="500"></textarea>
-                <button class="chat-send-button" onclick="sendMessage()">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Socket.io Client -->
-    <script src="/socket.io/socket.io.js"></script>
     <script>
-        const socket = io();
-        const chatContainer = document.getElementById('chatContainer');
-        const chatBody = document.getElementById('chatBody');
-        const chatMessages = document.getElementById('chatMessages');
-        const chatMessageInput = document.getElementById('chatMessageInput');
-        const chatUsername = document.getElementById('chatUsername');
-        const chatToggle = document.getElementById('chatToggle');
+        (function () {
+            var slidesEl = document.getElementById('recapSlides');
+            var dotsEl   = document.getElementById('recapDots');
+            if (!slidesEl || !dotsEl) return;
 
-        // Load username from localStorage
-        const savedUsername = localStorage.getItem('chessChatUsername');
-        if (savedUsername) {
-            chatUsername.value = savedUsername;
-        }
+            var total   = slidesEl.children.length;
+            var current = 0;
+            var timer;
 
-        // Save username to localStorage when changed
-        chatUsername.addEventListener('change', function() {
-            localStorage.setItem('chessChatUsername', chatUsername.value);
-        });
-
-        let isCollapsed = false;
-
-        function toggleChat() {
-            isCollapsed = !isCollapsed;
-            chatContainer.classList.toggle('collapsed', isCollapsed);
-            chatToggle.innerHTML = isCollapsed ? '<i class="fas fa-chevron-up"></i>' : '<i class="fas fa-chevron-down"></i>';
-        }
-
-        function formatTime(timestamp) {
-            const date = new Date(timestamp);
-            const hours = date.getHours().toString().padStart(2, '0');
-            const minutes = date.getMinutes().toString().padStart(2, '0');
-            return `${hours}:${minutes}`;
-        }
-
-        function addMessage(username, message, timestamp, isOwn = false) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `chat-message ${isOwn ? 'own-message' : ''}`;
-            
-            const header = document.createElement('div');
-            header.className = 'chat-message-header';
-            header.textContent = username;
-            
-            const text = document.createElement('div');
-            text.className = 'chat-message-text';
-            text.textContent = message;
-            
-            const time = document.createElement('div');
-            time.className = 'chat-message-time';
-            time.textContent = formatTime(timestamp);
-            
-            messageDiv.appendChild(header);
-            messageDiv.appendChild(text);
-            messageDiv.appendChild(time);
-            
-            chatMessages.appendChild(messageDiv);
-            chatBody.scrollTop = chatBody.scrollHeight;
-        }
-
-        function showError(message) {
-            const errorDiv = document.createElement('div');
-            errorDiv.className = 'chat-error';
-            errorDiv.textContent = message;
-            chatMessages.appendChild(errorDiv);
-            setTimeout(() => errorDiv.remove(), 5000);
-            chatBody.scrollTop = chatBody.scrollHeight;
-        }
-
-        function sendMessage() {
-            const username = chatUsername.value.trim();
-            const message = chatMessageInput.value.trim();
-
-            if (!username) {
-                showError('Please enter a username');
-                chatUsername.focus();
-                return;
+            for (var i = 0; i < total; i++) {
+                (function (idx) {
+                    var dot = document.createElement('button');
+                    dot.className = 'recap-carousel-dot' + (idx === 0 ? ' active' : '');
+                    dot.setAttribute('aria-label', 'Go to photo ' + (idx + 1));
+                    dot.addEventListener('click', function () { goTo(idx); });
+                    dotsEl.appendChild(dot);
+                })(i);
             }
 
-            if (!message) {
-                return;
+            function goTo(n) {
+                current = (n + total) % total;
+                slidesEl.style.transform = 'translateX(-' + (current * 100) + '%)';
+                var dots = dotsEl.querySelectorAll('.recap-carousel-dot');
+                for (var j = 0; j < dots.length; j++) {
+                    dots[j].classList.toggle('active', j === current);
+                }
+                reset();
             }
 
-            // Save username
-            localStorage.setItem('chessChatUsername', username);
-
-            // Send message to server
-            socket.emit('chatMessage', {
-                username: username,
-                message: message
-            });
-
-            // Clear input
-            chatMessageInput.value = '';
-        }
-
-        // Send message on Enter (but allow Shift+Enter for new line)
-        chatMessageInput.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                sendMessage();
+            function reset() {
+                clearInterval(timer);
+                timer = setInterval(function () { goTo(current + 1); }, 4500);
             }
-        });
 
-        // Socket event listeners
-        socket.on('messageHistory', function(messages) {
-            chatMessages.innerHTML = '';
-            messages.forEach(function(msg) {
-                const isOwn = msg.username === chatUsername.value;
-                addMessage(msg.username, msg.message, msg.timestamp, isOwn);
-            });
-        });
+            window.recapNextSlide = function () { goTo(current + 1); };
+            window.recapPrevSlide = function () { goTo(current - 1); };
 
-        socket.on('newMessage', function(data) {
-            const isOwn = data.username === chatUsername.value;
-            addMessage(data.username, data.message, data.timestamp, isOwn);
-        });
-
-        socket.on('error', function(error) {
-            showError(error);
-        });
-
-        // Auto-scroll to bottom when new messages arrive
-        const observer = new MutationObserver(function() {
-            chatBody.scrollTop = chatBody.scrollHeight;
-        });
-        observer.observe(chatMessages, { childList: true });
+            reset();
+        })();
     </script>
 
 </body>
