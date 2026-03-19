@@ -170,8 +170,8 @@ app.get("/BlitzMarch2026", function(req, res){
   res.render("BlitzMarch2026");
 });
 
-app.get("/QCC2026", function(req, res){
-  res.render("QCC2026");
+app.get("/Bughouse2026", function(req, res){
+  res.render("Bughouse2026");
 });
 
 

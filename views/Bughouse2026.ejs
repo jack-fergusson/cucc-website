@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 Queen's Bughouse Championship - Queen's Chess Club</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/logo.jpg"/>
+
+    <style>
+        .bughouse-page {
+            background: linear-gradient(180deg, #120c09 0%, #21140d 36%, #f8f1e7 36%, #f8f1e7 100%);
+            padding-bottom: 70px;
+        }
+
+        .bughouse-shell {
+            width: min(1160px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .bughouse-hero {
+            padding: 70px 0 46px;
+            color: white;
+        }
+
+        .bughouse-hero__eyebrow {
+            display: inline-block;
+            font-family: 'League Spartan', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #ffcf6b;
+            margin-bottom: 18px;
+        }
+
+        .bughouse-hero__content {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(300px, 0.9fr);
+            gap: 28px;
+            align-items: center;
+        }
+
+        .bughouse-hero h1 {
+            font-family: 'League Spartan', sans-serif;
+            font-size: clamp(2.8rem, 7vw, 4.9rem);
+            line-height: 0.95;
+            text-transform: uppercase;
+            margin: 0 0 18px;
+            letter-spacing: 1px;
+            max-width: 760px;
+            color: #d4af37;
+        }
+
+        .bughouse-hero p {
+            font-family: 'Vollkorn', serif;
+            font-size: 1.16rem;
+            line-height: 1.7;
+            color: #f1dfcc;
+            margin: 0 0 26px;
+            max-width: 640px;
+        }
+
+        .bughouse-tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .bughouse-tag {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 207, 107, 0.28);
+            border-radius: 999px;
+            padding: 10px 16px;
+            font-family: 'League Spartan', sans-serif;
+            font-size: 0.92rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: white;
+        }
+
+        .bughouse-side-card {
+            background: linear-gradient(160deg, rgba(255, 204, 103, 0.16), rgba(255, 255, 255, 0.05));
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 24px;
+            padding: 26px;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 22px 40px rgba(0, 0, 0, 0.18);
+        }
+
+        .bughouse-side-card h2 {
+            margin: 0 0 14px;
+            font-family: 'League Spartan', sans-serif;
+            font-size: 1.4rem;
+            color: #ffcf6b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .bughouse-side-card ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #f6eadf;
+            font-family: 'Vollkorn', serif;
+            line-height: 1.7;
+            font-size: 1.02rem;
+        }
+
+        .bughouse-main {
+            margin-top: 18px;
+            display: grid;
+            grid-template-columns: minmax(0, 1.3fr) minmax(310px, 0.9fr);
+            gap: 28px;
+            align-items: start;
+        }
+
+        .bughouse-panel {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 45px rgba(20, 12, 9, 0.08);
+            padding: 34px;
+        }
+
+        .bughouse-highlight {
+            background: linear-gradient(135deg, #2c1d16 0%, #4a2a18 100%);
+            color: white;
+            border-radius: 22px;
+            padding: 26px 28px;
+            margin-bottom: 24px;
+        }
+
+        .bughouse-highlight h2 {
+            margin: 0 0 12px;
+            font-family: 'League Spartan', sans-serif;
+            font-size: 1.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #ffcf6b;
+        }
+
+        .bughouse-highlight p,
+        .bughouse-panel p,
+        .bughouse-panel li,
+        .register-card p,
+        .register-card li {
+            font-family: 'Vollkorn', serif;
+            font-size: 1.04rem;
+            line-height: 1.7;
+            color: #443028;
+        }
+
+        .bughouse-highlight p {
+            color: #f3e7dd;
+            margin: 0;
+        }
+
+        .bughouse-section + .bughouse-section {
+            margin-top: 28px;
+        }
+
+        .bughouse-section h3 {
+            margin: 0 0 14px;
+            font-family: 'League Spartan', sans-serif;
+            font-size: 1.45rem;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            color: #251712;
+        }
+
+        .bughouse-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .bughouse-info-card,
+        .register-card,
+        .prize-card {
+            background: #fffaf4;
+            border: 1px solid #efd9c4;
+            border-radius: 18px;
+            padding: 22px;
+        }
+
+        .bughouse-info-card h4,
+        .register-card h3,
+        .prize-card h4 {
+            margin: 0 0 10px;
+            font-family: 'League Spartan', sans-serif;
+            font-size: 1.08rem;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            color: #9f4529;
+        }
+
+        .bughouse-info-card p,
+        .prize-card p {
+            margin: 0;
+        }
+
+        .prize-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .prize-card {
+            text-align: center;
+            background: linear-gradient(180deg, #fff7ec 0%, #fff 100%);
+        }
+
+        .prize-card .place {
+            display: block;
+            font-family: 'League Spartan', sans-serif;
+            font-size: 0.92rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #8d7768;
+            margin-bottom: 8px;
+        }
+
+        .prize-card .amount {
+            display: block;
+            font-family: 'League Spartan', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+            color: #cf5f23;
+            margin-bottom: 8px;
+        }
+
+        .register-card {
+            position: sticky;
+            top: 24px;
+            background: linear-gradient(180deg, #fff9f2 0%, #ffffff 100%);
+        }
+
+        .register-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 12px;
+            background: #cf5f23;
+            color: white;
+            text-decoration: none;
+            font-family: 'League Spartan', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            transition: transform 0.2s ease, background 0.2s ease;
+            margin: 14px 0 18px;
+        }
+
+        .register-button:hover {
+            color: white;
+            background: #b94f16;
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        .register-link {
+            word-break: break-word;
+            color: #9f4529;
+            font-weight: 700;
+        }
+
+        .register-list {
+            margin: 0 0 20px;
+            padding-left: 20px;
+        }
+
+        .qr-wrapper {
+            margin-top: 18px;
+            text-align: center;
+        }
+
+        .qr-wrapper img {
+            width: min(240px, 100%);
+            height: auto;
+            border-radius: 18px;
+            border: 8px solid white;
+            box-shadow: 0 14px 34px rgba(25, 12, 7, 0.12);
+            background: white;
+        }
+
+        .qr-caption {
+            margin-top: 12px;
+            font-family: 'Vollkorn', serif;
+            font-size: 0.98rem;
+            line-height: 1.6;
+            color: #5e4337;
+        }
+
+        .contact-strip {
+            margin-top: 20px;
+            padding-top: 18px;
+            border-top: 1px solid #ecd9c8;
+        }
+
+        .contact-strip a {
+            color: #9f4529;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .contact-strip a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 940px) {
+            .bughouse-hero__content,
+            .bughouse-main,
+            .bughouse-grid,
+            .prize-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .register-card {
+                position: static;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .bughouse-page {
+                background: linear-gradient(180deg, #120c09 0%, #24150d 27%, #f8f1e7 27%, #f8f1e7 100%);
+            }
+
+            .bughouse-hero {
+                padding-top: 52px;
+            }
+
+            .bughouse-panel,
+            .register-card,
+            .bughouse-highlight {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+
+<%- include('header.ejs') %>
+
+<body>
+    <div class="bughouse-page">
+        <div class="bughouse-shell">
+            <section class="bughouse-hero">
+                <div class="bughouse-hero__content">
+                    <div>
+                        <div class="bughouse-hero__eyebrow">Queen's Chess Club presents</div>
+                        <h1>2026 Queen's Bughouse Championship</h1>
+                        <p>Bughouse is taking over the old QCC slot this year. Grab a partner for a fast, team-based event with round robin pairings, a 5+0 time control, and cash prizes for the top two teams.</p>
+                        <div class="bughouse-tag-row">
+                            <span class="bughouse-tag">March 28, 2026</span>
+                            <span class="bughouse-tag">2:00 PM</span>
+                            <span class="bughouse-tag">Kingston Hall 208</span>
+                            <span class="bughouse-tag">Teams of 2</span>
+                        </div>
+                    </div>
+
+                    <aside class="bughouse-side-card">
+                        <h2>Quick Snapshot</h2>
+                        <ul>
+                            <li>Format: Round robin</li>
+                            <li>Time control: 5+0</li>
+                            <li>Entry fee: $10 for all players</li>
+                            <li>Prizes: $50 for first, $40 for second</li>
+                            <li>Need a partner? Individuals can also be paired on-site</li>
+                        </ul>
+                    </aside>
+                </div>
+            </section>
+
+            <section class="bughouse-main">
+                <div class="bughouse-panel">
+                    <div class="bughouse-highlight">
+                        <h2>Register Online or On-Site</h2>
+                        <p>Use the Google Form ahead of time to reserve your spot, or sign up in person on the day of the event. Teams may register together, and players without a partner can still attend and be paired on-site.</p>
+                    </div>
+
+                    <div class="bughouse-section">
+                        <h3>Event Details</h3>
+                        <p>The 2026 Queen's Bughouse Championship is a team event built around speed, coordination, and chaos in the best possible way. Each team has two players, and pieces captured by one teammate can be dropped by the other.</p>
+                        <div class="bughouse-grid">
+                            <div class="bughouse-info-card">
+                                <h4>When</h4>
+                                <p>Saturday, March 28th, 2026<br>Games begin at 2:00 PM</p>
+                            </div>
+                            <div class="bughouse-info-card">
+                                <h4>Where</h4>
+                                <p>Kingston Hall 208<br>Queen's University</p>
+                            </div>
+                            <div class="bughouse-info-card">
+                                <h4>Format</h4>
+                                <p>Round robin teams event<br>5+0 time control</p>
+                            </div>
+                            <div class="bughouse-info-card">
+                                <h4>Who Can Play</h4>
+                                <p>Open entry with no rating limits<br>Students and non-students welcome</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bughouse-section">
+                        <h3>Prizes and Entry</h3>
+                        <p>The event costs $10 per player. Monetary prizes are awarded by team standing and will be divided between teammates.</p>
+                        <div class="prize-grid">
+                            <div class="prize-card">
+                                <span class="place">First Place</span>
+                                <span class="amount">$50</span>
+                                <p>Top finishing team</p>
+                            </div>
+                            <div class="prize-card">
+                                <span class="place">Second Place</span>
+                                <span class="amount">$40</span>
+                                <p>Runner-up team</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bughouse-section">
+                        <h3>Registration Notes</h3>
+                        <p>If you already have a teammate, include their name in the form. If not, you can still register solo or simply come to the event and we will help pair individuals on-site. Entry fees can be paid by e-transfer to <strong>queenschess@outlook.com</strong> or with exact cash on-site.</p>
+                    </div>
+                </div>
+
+                <aside class="register-card">
+                    <h3>Sign Up</h3>
+                    <p>Register here for the 2026 Queen's Bughouse Championship:</p>
+                    <a class="register-button" href="https://docs.google.com/forms/d/e/1FAIpQLSeYxOY91dxeh_GFkRjNIr-imMualomGKCkCe9v2xQjO2qAnTw/viewform" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt"></i>
+                        Open Google Form
+                    </a>
+
+                    <ul class="register-list">
+                        <li>Add your teammate if you already have one.</li>
+                        <li>If you do not have a partner, you can still register and be paired on-site.</li>
+                        <li>Choose e-transfer or cash on-site when submitting the form.</li>
+                    </ul>
+
+                    <div class="qr-wrapper">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2Fe%2F1FAIpQLSeYxOY91dxeh_GFkRjNIr-imMualomGKCkCe9v2xQjO2qAnTw%2Fviewform" alt="QR code linking to the 2026 Queen's Bughouse Championship Google Form">
+                        <p class="qr-caption">Scan this QR code to open the registration form directly on your phone.</p>
+                    </div>
+
+                    <div class="contact-strip">
+                        <p>Questions or concerns? Email <a href="mailto:queenschess@outlook.com">queenschess@outlook.com</a>.</p>
+                    </div>
+                </aside>
+            </section>
+        </div>
+    </div>
+
+    <%- include('footer.ejs'); %>
+</body>
+</html>
