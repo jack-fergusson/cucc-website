@@ -456,6 +456,48 @@ hr {
     max-width: 90%;
 }
 
+@media (max-width: 768px) {
+    .exec,
+    .backwards-exec {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .backwards-exec .info {
+        order: 2;
+    }
+
+    .backwards-exec > div:last-child {
+        order: 1;
+    }
+
+    .exec-image {
+        width: min(220px, 70vw);
+        height: min(220px, 70vw);
+        margin: 0 auto;
+    }
+
+    .info {
+        margin-left: 0;
+        max-width: 100%;
+        justify-content: center;
+    }
+
+    .info h4 {
+        line-height: 1.4;
+        white-space: normal;
+    }
+}
+
+@media (max-width: 480px) {
+    .exec-image {
+        width: min(180px, 65vw);
+        height: min(180px, 65vw);
+    }
+}
+
 /* -------------------------------------------------------------------------------------- */
 /*                                         QCC Page                                       */
 /* -------------------------------------------------------------------------------------- */
