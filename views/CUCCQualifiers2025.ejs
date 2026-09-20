@@ -9,16 +9,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
-    <link href="css/styles.css" rel="stylesheet">
-    <link href="css/tournament-page.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="shortcut icon" type="image/x-icon" href="images/logo.jpg"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logo.jpg"/>
+    <link rel="stylesheet" href="/css/site.css">
 </head>
-
-<%- include('header.ejs') %>
-
-<body>
+<body class="legacy-page">
+<%- include('header') %>
+<%- include('archive-notice') %>
+<main id="main-content" class="legacy-main">
     <div class="tournament-hero" style="background-color: #e9e9e9;">
         <div class="tournament-hero-overlay">
             <div class="tournament-hero-content">
@@ -86,9 +86,9 @@
             <div class="tournament-section">
                 <h2>CUCC 2025 Gallery</h2>
                 <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin-top: 2rem;">
-                    <img src="images/CUCC2025_1.JPG" alt="CUCC 2025 Photo 1" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                    <img src="images/CUCC2025_2.JPG" alt="CUCC 2025 Photo 2" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                    <img src="images/CUCC2025_3.JPG" alt="CUCC 2025 Photo 3" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <img src="/images/CUCC2025_1.JPG" alt="CUCC 2025 Photo 1" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <img src="/images/CUCC2025_2.JPG" alt="CUCC 2025 Photo 2" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <img src="/images/CUCC2025_3.JPG" alt="CUCC 2025 Photo 3" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
                 </div>
             </div>
 
@@ -132,7 +132,7 @@
                             <p class="tournament-registration-deadline">Early bird ends Nov 16 at 11:59 PM</p>
                         </div>
                         <div class="registration-qr-container">
-                            <img src="images/CUCC_Qualifiers_QR_code.png" alt="Registration QR Code" class="registration-qr-code">
+                            <img src="/images/CUCC_Qualifiers_QR_code.png" alt="Registration QR Code" class="registration-qr-code">
                             <p>Scan to register</p>
                         </div>
                     </div>
@@ -160,7 +160,8 @@
     </div>
 
     <br><br>
-    <%- include('footer.ejs'); %>
+    </main>
+<%- include('footer.ejs'); %>
 
 </body>
 </html>

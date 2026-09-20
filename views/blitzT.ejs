@@ -9,15 +9,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-	<link rel="shortcut icon" type="image/x-icon" href="images/logo.jpg"/>
+	<link rel="shortcut icon" type="image/x-icon" href="/images/logo.jpg"/>
+    <link rel="stylesheet" href="/css/site.css">
 </head>
-
-<%- include('header.ejs') %>
-
-<body>
+<body class="legacy-page">
+<%- include('header') %>
+<%- include('archive-notice') %>
+<main id="main-content" class="legacy-main">
     <div class="centerer">
         <div class="width-container">
             <h1>2025 Blitz Tournament</h1>
@@ -27,8 +28,7 @@
 
 
         <div class="blitzT-container-1">
->
-            <img src="images/blitzT2025.png" alt="Blitz Tournament Poster">
+            <img src="/images/blitzT2025.png" alt="Blitz Tournament Poster">
 
             <ul>
                 <li>
@@ -95,7 +95,7 @@
                     </h4>
                 </li>
             </ul>
-            <img src = "images/blitzT_QRcode.png" alt = "QCC QR Code">
+            <img src = "/images/blitzT_QRcode.png" alt = "QCC QR Code">
         </div>
 
     </div>
@@ -104,7 +104,8 @@
     <br>
 
 
-    <%- include('footer.ejs'); %>
+    </main>
+<%- include('footer.ejs'); %>
 
 </body>
 </html>

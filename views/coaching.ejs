@@ -1,145 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chess Coaching - Queen's Chess Club</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-
-    <link href="css/styles.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-	<link rel="shortcut icon" type="image/x-icon" href="images/logo.jpg"/>
-</head>
-
-<%- include('header.ejs') %>
-
-<body>
-    <div class="centerer">
-        <div class="width-container">
-            <h1>FREE CHESS COACHING</h1>
-            <p style="text-align: center; margin-top: 20px; font-size: 1.3rem;">
-                Join our 12-week program. Drop in anytime: no sign-ups required!
-            </p>
-        </div>
-
-        <div class="coaching-info-panel">
-            <div class="coaching-info-item">
-                <i class="fas fa-calendar-alt"></i>
-                <div class="coaching-info-content">
-                    <h3>Program Duration</h3>
-                    <p>January 14th - April 1st, 2025</p>
-                </div>
-            </div>
-            <div class="coaching-info-item">
-                <i class="fas fa-clock"></i>
-                <div class="coaching-info-content">
-                    <h3>Schedule</h3>
-                    <p>Every Wednesday, 6:00 PM - 7:00 PM</p>
-                </div>
-            </div>
-            <div class="coaching-info-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <div class="coaching-info-content">
-                    <h3>Location</h3>
-                    <p>Kingston Hall Room 205</p>
-                </div>
-            </div>
-            <div class="coaching-info-item">
-                <i class="fas fa-gift"></i>
-                <div class="coaching-info-content">
-                    <h3>Cost</h3>
-                    <p>Completely Free!</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="width-container">
-            <p style="text-align: center; margin: 30px 0; font-size: 1.1rem; line-height: 1.8;">
-                This program is completely free and will be occurring on a drop-in basis, meaning that no sign-ups are required. 
-                Stop by to learn some exciting new chess skills and stay for the general meeting to test out your skills afterward!
-            </p>
-        </div>
-
-        <div class="coaching-schedule-container">
-            <h2>Program Schedule</h2>
-            <div class="coaching-schedule-grid">
-                <div class="coaching-session-card">
-                    <div class="session-date">JAN 14</div>
-                    <h3>Chess Thinking</h3>
-                    <p>How do strong players think?</p>
-                </div>
-                <div class="coaching-session-card">
-                    <div class="session-date">JAN 21</div>
-                    <h3>Meet the Philosophers</h3>
-                    <p>Core concepts of old-school masters</p>
-                </div>
-                <div class="coaching-session-card">
-                    <div class="session-date">JAN 28</div>
-                    <h3>Opening Principles</h3>
-                    <p>Play the opening for the middlegame</p>
-                </div>
-                <div class="coaching-session-card">
-                    <div class="session-date">FEB 4</div>
-                    <h3>Prophylactic Thinking</h3>
-                    <p>Stopping your opponent's attack</p>
-                </div>
-                <div class="coaching-session-card">
-                    <div class="session-date">FEB 11</div>
-                    <h3>Practical Openings</h3>
-                    <p>Build your opening repertoire!</p>
-                </div>
-                <div class="coaching-session-card">
-                    <div class="session-date">FEB 18</div>
-                    <h3>Piece Activity & Coordination</h3>
-                    <p>Use your pieces strategically (TAKE HOME)</p>
-                </div>
-                <div class="coaching-session-card">
-                    <div class="session-date">FEB 25</div>
-                    <h3>Chess Strategy</h3>
-                    <p>Common opening mistakes</p>
-                </div>
-                <div class="coaching-session-card">
-                    <div class="session-date">MAR 4</div>
-                    <h3>Dynamic Imbalances</h3>
-                    <p>When activity outweighs material</p>
-                </div>
-                <div class="coaching-session-card">
-                    <div class="session-date">MAR 11</div>
-                    <h3>Game Changer (Alphazero)</h3>
-                    <p>Modern ideas in chess</p>
-                </div>
-                <div class="coaching-session-card">
-                    <div class="session-date">MAR 18</div>
-                    <h3>Attack</h3>
-                    <p>Mastering the unsound attacks vs missed attacking chances</p>
-                </div>
-                <div class="coaching-session-card">
-                    <div class="session-date">MAR 25</div>
-                    <h3>Attack</h3>
-                    <p>Structured attacks, not "hope chess"!</p>
-                </div>
-                <div class="coaching-session-card">
-                    <div class="session-date">APR 1</div>
-                    <h3>Middlegame to Endgame</h3>
-                    <p>Transitions</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="coaching-cta">
-            <h2>Interested in the Coaching Program?</h2>
-            <p>Let us know what you'd like to see by filling out this form:</p>
-            <a href="https://forms.gle/oVi4WKSwnRvAxiAm7" target="_blank" class="coaching-form-button">
-                <i class="fas fa-clipboard-list"></i> Fill Out the Form
-            </a>
-        </div>
+<head><%- include('head', { title: 'Learn chess', description: 'Build your chess confidence with Queen’s Chess Club. Discover coaching topics, meet fellow players, and join our Thursday club nights.' }) %></head>
+<body class="site-page">
+<%- include('header') %>
+<main id="main-content">
+  <section class="site-shell page-intro"><p class="eyebrow">A little curiosity goes a long way</p><h1>Every master was<br>once a beginner.</h1><p>Learn the rules, spot your first tactic, or work on your next breakthrough. You’ve got people to learn with.</p></section>
+  <section class="site-shell learning-layout">
+    <div><h2>Let’s work on your game.</h2><p>Our club brings beginners and experienced players together to share ideas, discuss games, and get better at chess. You don’t need a rating or a perfect opening repertoire to get started.</p><p>We’ve also offered free, drop-in coaching covering everything from opening principles to attacking play. Join Discord for announcements about future coaching sessions.</p><a class="button button-primary" href="<%= club.discord %>">Ask about coaching <span aria-hidden="true">↗</span></a></div>
+    <aside class="learning-aside"><p class="eyebrow">Start with a club night</p><h2>A friendly place to learn.</h2><p><strong><%= club.meeting.day %> · <%= club.meeting.time %></strong><br><%= club.meeting.location %></p><p>Introduce yourself and let us know what you’d like to learn. Check Discord for coaching times and weekly updates.</p><a class="text-link" href="/#visit">Plan your first visit <span aria-hidden="true">↗</span></a></aside>
+  </section>
+  <section class="site-shell" aria-labelledby="topics-title">
+    <div class="section-heading"><div><p class="eyebrow">From our coaching program</p><h2 id="topics-title">Build your chess toolkit.</h2></div><p>Topics from previous sessions.<br>Future session dates will be announced on Discord.</p></div>
+    <div class="topic-grid">
+      <% const topics = [ ['Opening principles', 'Develop your pieces, control the centre, and give your king a safe home.'], ['Thinking like a player', 'Learn how stronger players evaluate a position and choose their next move.'], ['Tactics & calculation', 'Look for forcing moves, coordinate your pieces, and spot opportunities.'], ['Strategy & planning', 'Understand piece activity, prevent threats, and build a practical plan.'], ['Attacking play', 'Create an attack with purpose and recognise when the position calls for one.'], ['Into the endgame', 'Explore the transition from a busy middlegame to the final few pieces.'] ]; %>
+      <% topics.forEach((topic, index) => { %><article class="topic-card"><span>0<%= index + 1 %></span><h3><%= topic[0] %></h3><p><%= topic[1] %></p></article><% }) %>
     </div>
-
-    <%- include('footer.ejs'); %>
-
+  </section>
+  <section class="site-shell events-meeting coaching-feedback"><div><p class="eyebrow">Help shape the next session</p><h2>What would you like to learn?</h2><p>Tell our coaches which parts of your game you want to work on.</p></div><a class="button button-primary" href="https://forms.gle/oVi4WKSwnRvAxiAm7" target="_blank" rel="noopener noreferrer">Share your interests <span aria-hidden="true">↗</span></a></section>
+</main>
+<%- include('footer') %>
 </body>
 </html>

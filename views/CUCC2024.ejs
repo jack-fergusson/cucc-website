@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="images/ChessLogo.ico">
+    <link rel="icon" href="/images/logo.jpg">
 
     <title>CUCC 2024</title>
 
@@ -16,34 +16,19 @@
 
      <!-- Pretty much using bootstrap for everything -->
 
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/bootstrap-social.css" rel="stylesheet">
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/jumbotron.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-social.css" rel="stylesheet">
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/jumbotron.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="/css/site.css">
   </head>
 
-  <body>
-    <!-- Navigation bar -->
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="/cucc">CUCC 2024</a>
-      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button> -->
+  <body class="legacy-page">
+    <%- include('header') %>
+    <%- include('archive-notice') %>
 
-      <div id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home <!--<span class="sr-only">(current)</span>--></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/signup">Sign Up</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-    <main role="main">
+    <main id="main-content" class="legacy-main">
 
       <!-- Main jumbotron -->
       <div class="jumbotron">
@@ -72,7 +57,7 @@
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
                 <img 
-                    src="images/grantHall.jpg"
+                    src="/images/grantHall.jpg"
                     alt="Ontario hall in Kinston, Ontario"
                     >
                 <div class="card-body">
@@ -88,7 +73,7 @@
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
                 <img 
-                    src="images/chess.jpg"
+                    src="/images/chess.jpg"
                     alt="Hand reaching for chess piece"
                     >
                 <div class="card-body">
@@ -104,7 +89,7 @@
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
                 <img 
-                    src="images/bughouse.jpg"
+                    src="/images/bughouse.jpg"
                     alt="people playing chess in a bar"
                     >
                 <div class="card-body">
@@ -126,6 +111,7 @@
 
     
       <h2>Registered Teams</h2><br>
+      <% if (teamsUnavailable) { %><p>Archived team listings are temporarily unavailable.</p><% } %>
       <h4>Crown Section</h4>
       <table class="table">
         <thead class="thead-dark">
@@ -140,7 +126,7 @@
         <% for (var i = 0; i < schools.length; i++) { %>
             <% if (schools[i].section === 0 && schools[i].approved === true) { %>
                 <th scope="row"><%= schools[i].name %></th>
-                <% for (var j = 0; j < 5; j++) { %>
+                <% for (var j = 0; j < schools[i].players.length; j++) { %>
                   <% if (schools[i].players[j].name != '') { %>
                     <tr>
                         <td><%= j+1 %></td>
@@ -175,7 +161,7 @@
         <% for (var i = 0; i < schools.length; i++) { %>
             <% if (schools[i].section === 1 && schools[i].approved === true) { %>
                 <th scope="row"><%= schools[i].name %></th>
-                <% for (var j = 0; j < 5; j++) { %>
+                <% for (var j = 0; j < schools[i].players.length; j++) { %>
                   <% if (schools[i].players[j].name != '') { %>
                     <tr>
                         <td><%= j+1 %></td>
@@ -200,17 +186,15 @@
     </div>
     </main>
 
-    <footer class="container">
-      <p>&copy; Queen's University Chess Club 2023</p>
-    </footer>
+    <%- include('footer') %>
 
     <!-- Bootstrap core JavaScript MUST BE IN PUBLIC FOLDER
         Use ejs formatting to reference files. Not full path name
     ================================================== -->
-    <script src="js/jquery.slim.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="/js/jquery.slim.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     
   </body>
 </html>
