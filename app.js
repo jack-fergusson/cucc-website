@@ -5,7 +5,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const _ = require("lodash");
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { club, events } = require('./data/club');
+const { meetingCalendar } = require('./lib/meeting-calendar');
 const http = require("http");
 const { Server } = require("socket.io");
 require("dotenv").config();
@@ -20,34 +21,19 @@ app.set('view engine', 'ejs');
 app.set('views', (__dirname + '/views'));
 
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static("public"));
-
-console.log(process.env.URI);
-const uri = process.env.URI;
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
+app.use(express.static(__dirname + '/public'));
+app.locals.club = club;
+app.locals.events = events;
+app.use((req, res, next) => {
+  res.locals.currentPath = req.path.replace(/\/$/, '') || '/';
+  next();
 });
-async function run() {
-  try {
-    // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
-    // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
-}
-run().catch(console.dir);
 
-// connect using the uri. Private key
-mongoose.connect(uri);
+// Public pages also work without a database, including in local development.
+// Never log the connection string, which may contain credentials.
+if (process.env.URI) {
+  mongoose.connect(process.env.URI).catch(() => console.error('Database connection unavailable.'));
+}
 
 // schema for a single player on a team
 const playerSchema = {
@@ -122,7 +108,16 @@ app.get("/eventsPage", function(req, res) {
   res.render("eventsPage");
 });
 
+app.get('/meetings/next.ics', function(req, res) {
+  res.set('Cache-Control', 'no-store');
+  res.attachment('queens-chess-club-night.ics');
+  res.type('text/calendar').send(meetingCalendar());
+});
+
 app.get("/CUCC2024", function(req, res) {
+  if (mongoose.connection.readyState !== 1) {
+    return res.render('CUCC2024', { schools: [], teamsUnavailable: true });
+  }
 
   // THIS is the syntax to find items in a 
   // collection. Must use .exec() in order
@@ -131,16 +126,18 @@ app.get("/CUCC2024", function(req, res) {
     .then(function(results) {
       // render the homestrap ejs page, passing in the
       // results of the database query
-      res.render("CUCC2024", {schools: results});
+      res.render("CUCC2024", {schools: results, teamsUnavailable: false});
     })
-    .catch(function(err) {
-      console.log(err);
+    .catch(function() {
+      res.render('CUCC2024', { schools: [], teamsUnavailable: true });
     });
 });
 
 app.get("/base", function(req, res) {
-  res.render("jaesonHome");
+  res.redirect('/');
 });
+
+app.get('/cucc', (req, res) => res.redirect('/CUCC2024'));
 
 app.get("/signup", function(req, res){
   res.render("signupStrap");
@@ -176,6 +173,9 @@ app.get("/Bughouse2026", function(req, res){
 
 
 app.post("/signup", function(req,res) {
+  if (mongoose.connection.readyState !== 1) {
+    return res.status(503).send('Registration is unavailable. Please contact queenschess@outlook.com.');
+  }
   // console.log(req.body.teamName);
 
   // create a new instance of Player based on results of the form
@@ -336,10 +336,11 @@ io.on("connection", function(socket) {
   });
 });
 
-let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 3000;
+if (require.main === module) {
+  const port = process.env.PORT || 3000;
+  server.listen(port, function() {
+    console.log("Server has started successfully on port " + port);
+  });
 }
-server.listen(port, function() {
-  console.log("Server has started successfully on port " + port);
-});
+
+module.exports = { app, server };

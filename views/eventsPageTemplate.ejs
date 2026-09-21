@@ -9,18 +9,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
-    <link href="css/styles.css" rel="stylesheet">
-    <link href="css/tournament-page.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="shortcut icon" type="image/x-icon" href="images/logo.jpg"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logo.jpg"/>
+    <link rel="stylesheet" href="/css/site.css">
 </head>
-
-<%- include('header.ejs') %>
-
-<body>
+<body class="legacy-page">
+<%- include('header') %>
+<%- include('archive-notice') %>
+<main id="main-content" class="legacy-main">
     <!-- Hero Section with Banner Image -->
-    <div class="tournament-hero" style="background-image: url('images/event-banner.jpg');">
+    <div class="tournament-hero" style="background-image: url('/images/optimized/chess.webp');">
         <div class="tournament-hero-overlay">
             <div class="tournament-hero-content">
                 <h1>Canadian University Chess Championship</h1>
@@ -73,12 +73,12 @@
                         <div class="pairings-card">
                             <div class="pairings-preview">
                                 <p class="pairings-caption">Click to view U1600 Section Pairings</p>
-                                <img id="u1600-thumbnail" src="images/u1600-pairings-thumbnail.jpg" alt="U1600 Section Pairings Preview" class="pairings-thumbnail">
+                                <img id="u1600-thumbnail" src="/images/u1600-pairings-thumbnail.jpg" alt="U1600 Section Pairings Preview" class="pairings-thumbnail">
                             </div>
                             
                             <div id="u1600-modal" class="pairings-modal">
                                 <span class="close-modal">&times;</span>
-                                <img id="u1600-full" src="images/u1600-pairings-full.jpg" alt="U1600 Section Round 4 Pairings" class="pairings-full-image">
+                                <img id="u1600-full" src="/images/u1600-pairings-full.jpg" alt="U1600 Section Round 4 Pairings" class="pairings-full-image">
                             </div>
                         </div>
                         
@@ -86,12 +86,12 @@
                         <div class="pairings-card">
                             <div class="pairings-preview">
                                 <p class="pairings-caption">Click to view Crown Section Pairings</p>
-                                <img id="crown-thumbnail" src="images/crown-pairings-thumbnail.jpg" alt="Crown Section Pairings Preview" class="pairings-thumbnail">
+                                <img id="crown-thumbnail" src="/images/crown-pairings-thumbnail.jpg" alt="Crown Section Pairings Preview" class="pairings-thumbnail">
                             </div>
                             
                             <div id="crown-modal" class="pairings-modal">
                                 <span class="close-modal">&times;</span>
-                                <img id="crown-full" src="images/crown-pairings-full.jpg" alt="Crown Section Round 4 Pairings" class="pairings-full-image">
+                                <img id="crown-full" src="/images/crown-pairings-full.jpg" alt="Crown Section Round 4 Pairings" class="pairings-full-image">
                             </div>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
                         <p class="tournament-registration-deadline">Registration closes January 20, 2025</p>
                     </div>
                     <div class="registration-qr-container">
-                        <img src="images/QCC_QR_code.png" alt="Registration QR Code" class="registration-qr-code">
+                        <img src="/images/QCC_QR_code.png" alt="Registration QR Code" class="registration-qr-code">
                         <p>Scan to register</p>
                     </div>
                 </div>
@@ -264,7 +264,7 @@
                     <div class="tournament-contact-card">
                         <i class="fab fa-discord"></i>
                         <h3>Discord</h3>
-                        <p>Join our server: <a href="https://discord.gg/queenschess">discord.gg/queenschess</a></p>
+                        <p>Join our server: <a href="<%= club.discord %>">Join the club Discord</a></p>
                     </div>
                 </div>
             </div>
@@ -273,7 +273,8 @@
     </div>
 
     <br><br>
-    <%- include('footer.ejs'); %>
+    </main>
+<%- include('footer.ejs'); %>
 
     <script>
         // Simple script to handle sticky navigation and smooth scrolling

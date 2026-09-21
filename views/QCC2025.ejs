@@ -3,44 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Name - Queen's Chess Club</title>
+    <title>Queen’s Chess Championship 2025 · Queen’s Chess Club</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
-    <link href="css/styles.css" rel="stylesheet">
-    <link href="css/tournament-page.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="shortcut icon" type="image/x-icon" href="images/logo.jpg"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logo.jpg"/>
+    <link rel="stylesheet" href="/css/site.css">
 </head>
-
-<%- include('header.ejs') %>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Name - Queen's Chess Club</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-
-    <link href="css/styles.css" rel="stylesheet">
-    <link href="css/tournament-page.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="shortcut icon" type="image/x-icon" href="images/logo.jpg"/>
-</head>
-
-<%- include('header.ejs') %>
-
-<body>
+<body class="legacy-page">
+<%- include('header') %>
+<%- include('archive-notice') %>
+<main id="main-content" class="legacy-main">
     <!-- Hero Section with Banner Image -->
-    <div class="tournament-hero" style="background-image: url('images/event-banner.jpg');">
+    <div class="tournament-hero" style="background-image: url('/images/optimized/chess.webp');">
         <div class="tournament-hero-overlay">
             <div class="tournament-hero-content">
 
@@ -121,30 +101,8 @@
                 
                 <!-- Results Links -->
                 <div class="results-links">
-                    <!-- Link card that triggers the modal -->
-                    <a href="#" class="results-link-card" id="results-trigger">
-                        <div class="link-icon"><i class="fas fa-list-ol"></i></div>
-                        <div class="link-content">
-                            <h4>Complete Tournament Results</h4>
-                            <p>View the full standings, individual game results, and statistics</p>
-                        </div>
-                        <div class="link-arrow"><i class="fas fa-arrow-right"></i></div>
-                    </a>
-
-                    <!-- Modal that appears when the link is clicked -->
-                    <div id="results-modal" class="modal">
-                        <div class="modal-content">
-                            <div class="modal-section top-section">
-                                <h3>Crown</h3>
-                                <img src="images/QCC 2025 Crown Standing.png" alt="Crown division results" class="results-image">
-                            </div>
-                            <div class="modal-section bottom-section">
-                                <h3>U1600</h3>
-                                <img src="images/QCC 2025 U1600 Standing.png" alt="U1600 division results" class="results-image">
-                            </div>
-                        </div>
-                    </div>
-                    
+                    <a href="/images/QCC%202025%20Crown%20Standing.png" class="results-link-card"><div class="link-content"><h3>Crown standings</h3><p>Open the full results image →</p></div></a>
+                    <a href="/images/QCC%202025%20U1600%20Standing.png" class="results-link-card"><div class="link-content"><h3>U1600 standings</h3><p>Open the full results image →</p></div></a>
                     <a href="https://drive.google.com/drive/folders/1-58k6_xDfgo30deCSWxIU-hbTF1wjLG4" target="_blank" class="results-link-card">
                         <div class="link-icon"><i class="fas fa-camera"></i></div>
                         <div class="link-content">
@@ -255,7 +213,7 @@
                     <div class="tournament-contact-card">
                         <i class="fab fa-discord"></i>
                         <h3>Discord</h3>
-                        <p>Join our server: <a href="https://discord.gg/queenschess">discord.gg/queenschess</a></p>
+                        <p>Join our server: <a href="<%= club.discord %>">Join the club Discord</a></p>
                     </div>
                 </div>
             </div>
@@ -264,76 +222,10 @@
     </div>
 
     <br><br>
-    <%- include('footer.ejs'); %>
-
-    <script>
-        // Simple script to handle sticky navigation and smooth scrolling
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.main-header');
-            if (window.scrollY > 100) {
-                header.classList.add('sticky');
-            } else {
-                header.classList.remove('sticky');
-            }
-        });
+    </main>
+<%- include('footer.ejs'); %>
 
 
-        document.addEventListener('DOMContentLoaded', function() {
-            // U1600 Section Modal
-            const u1600Preview = document.getElementById('u1600-thumbnail').parentElement;
-            const u1600Modal = document.getElementById('u1600-modal');
-            const u1600Close = u1600Modal.querySelector('.close-modal');
-            
-            u1600Preview.addEventListener('click', function() {
-                u1600Modal.style.display = 'block';
-            });
-            
-            u1600Close.addEventListener('click', function() {
-                u1600Modal.style.display = 'none';
-            });
-            
-            // Crown Section Modal
-            const crownPreview = document.getElementById('crown-thumbnail').parentElement;
-            const crownModal = document.getElementById('crown-modal');
-            const crownClose = crownModal.querySelector('.close-modal');
-            
-            crownPreview.addEventListener('click', function() {
-                crownModal.style.display = 'block';
-            });
-            
-            crownClose.addEventListener('click', function() {
-                crownModal.style.display = 'none';
-            });
-            
-            // Close modals when clicking outside the image
-            window.addEventListener('click', function(event) {
-                if (event.target == u1600Modal) {
-                    u1600Modal.style.display = 'none';
-                }
-                if (event.target == crownModal) {
-                    crownModal.style.display = 'none';
-                }
-            });
-        });
-
-
-        // Get the modal and trigger elements
-        const modal = document.getElementById("results-modal");
-        const trigger = document.getElementById("results-trigger");
-
-        // Open the modal when the link is clicked
-        trigger.addEventListener("click", function(event) {
-            event.preventDefault(); // Prevent default link behavior
-            modal.style.display = "block";
-            document.body.style.overflow = "hidden"; // Prevent scrolling while modal is open
-        });
-
-        // Close the modal when clicking anywhere
-        modal.addEventListener("click", function() {
-            modal.style.display = "none";
-            document.body.style.overflow = ""; // Restore scrolling
-        });
-    </script>
 
 
 

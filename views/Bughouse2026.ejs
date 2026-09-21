@@ -9,9 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="shortcut icon" type="image/x-icon" href="images/logo.jpg"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logo.jpg"/>
 
     <style>
         .bughouse-page {
@@ -348,11 +348,12 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="/css/site.css">
 </head>
-
-<%- include('header.ejs') %>
-
-<body>
+<body class="legacy-page">
+<%- include('header') %>
+<%- include('archive-notice') %>
+<main id="main-content" class="legacy-main">
     <div class="bughouse-page">
         <div class="bughouse-shell">
             <section class="bughouse-hero">
@@ -462,6 +463,7 @@
         </div>
     </div>
 
-    <%- include('footer.ejs'); %>
+    </main>
+<%- include('footer.ejs'); %>
 </body>
 </html>

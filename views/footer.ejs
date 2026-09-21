@@ -1,28 +1,20 @@
-<footer class="footer-container centerer"> <!--footer with links to social media-->
-
-    <div class="footer" style="width: 80%;">
-        <div class="centerer">
-            <div class = "LeftImages">
-                <a href="https://www.instagram.com/queensuchess/"><img src= "images/InstagramLogoWithCorrectBackground.jpg" alt="Instagram Page"></a>
-                <a href="https://discord.gg/6dJQr4jbY3"><img src="images/DiscordLogo.jpg" alt="Discord page"></a>
-                <a href="https://www.facebook.com/groups/130578570469174"><img style="border-radius: 50%;" src="images/FacebookLogo.png" alt="Facebook Page"></a>
-            </div>
-        </div>
-
-        <div class="centerer">
-            <ul>
-                <li>28 Division St</li>
-                <li>Kingston, ON</li>
-                <li>K7L 3N6</ii>
-                <li>Queenschess@outlook.com</li>
-                <!--Check if these are correct-->
-            </ul>
-        </div>
-        
-        <div class = "RightImage centerer">
-            <img src="images/QueensChessClubLogo.png" alt="Logo">
-            <!--Switch to proper logo-->
-        </div>
+<footer class="site-footer">
+  <div class="site-shell footer-grid">
+    <div>
+      <a class="site-brand" href="/"><img src="/images/logo.jpg" alt="" width="48" height="48"><span>Queen’s <strong>Chess Club</strong></span></a>
+      <p>A place for every player.<br>Queen’s University · Kingston, Ontario</p>
     </div>
-
+    <div>
+      <h2>Over the board</h2>
+      <p><%= club.meeting.day %> · <%= club.meeting.time %><br><%= club.meeting.location %></p>
+      <a href="<%= club.meeting.maps %>" target="_blank" rel="noopener noreferrer">Get directions <span aria-hidden="true">↗</span></a>
+    </div>
+    <div>
+      <h2>Keep in touch</h2>
+      <div class="footer-socials"><a href="<%= club.discord %>">Discord ↗</a><a href="<%= club.instagram %>">Instagram ↗</a><a href="<%= club.facebook %>">Facebook ↗</a></div>
+      <a class="footer-email" href="mailto:<%= club.email %>"><%= club.email %></a>
+    </div>
+  </div>
+  <div class="site-shell footer-bottom"><span>© <%= new Date().getFullYear() %> Queen’s Chess Club</span><span>Good games. Better company.</span></div>
 </footer>
+<script src="/js/site.js" defer></script>

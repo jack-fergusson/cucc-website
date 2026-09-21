@@ -1,166 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events - Queen's Chess Club</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-
-    <link href="css/styles.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="shortcut icon" type="image/x-icon" href="images/logo.jpg"/>
-</head>
-
-<%- include('header.ejs') %>
-
-<body>
-
-    <div class="centerer">
-        <h1>EVENTS</h1>
-
-        <div class="Events-container">
-            <h2>2026</h2>
-            <hr>
-            <div class="Events-bar-section">
-                <div class="Events-bar" onclick="navigateTo('/Bughouse2026')" style="background-image: url('images/bughouse.jpg')">
-                    <h3>2026 Queen's Bughouse Championship</h3>
-                    <p class="event-details">
-                        📍 Kingston Hall 208<br>
-                        📅 March 28, 2026 · 2:00 PM<br>
-                        ♟ Teams of 2 · Round Robin · 5+0<br>
-                        🏆 First: $50 · Second: $40 · Entry: $10
-                    </p>
-                    <a href="/Bughouse2026" class="event-button">Learn more + register</a>
-                </div>
-
-                <div class="Events-bar" onclick="navigateTo('/BlitzMarch2026')" style="background-image: url('images/stauffer.jpg')">
-                    <h3>Blitz Tournament — Sunday March 1st</h3>
-                    <p class="event-details">
-                        📍 Stauffer 014, Queen's University<br>
-                        📅 Sunday March 1st, 2026 · 1:00 PM<br>
-                        ♟ 2 sections (U1500, Open) · 9 rounds · 5+5<br>
-                        👥 $50 team prize · Queen's: $10 / Non-students: $15
-                    </p>
-                    <a href="/BlitzMarch2026" class="event-button">Learn more + register</a>
-                </div>
-
-                <div class="Events-bar" onclick="navigateTo('/CUCC2026')" style="background-image: url('images/CUCC2024image.jpg')">
-                    <h3>Canadian University Chess Championship 2026</h3>
-                    <p class="event-details">
-                        📍 Live Broadcast<br>
-                        📅 2026<br>
-                        📌 Team D Games on DGT<br>
-                        🎥 Watch Live on Lichess
-                    </p>
-                    <a href="/CUCC2026" class="event-button">Watch Live Games</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="Events-container">
-            <h2>2025</h2>
-            <hr>
-            <div class="Events-bar-section">
-
-                <div class="Events-bar" onclick="navigateTo('/CUCCQualifiers2025')" style="background-image: url('images/stauffer.jpg')">
-                    <h3>CUCC Qualifiers</h3>
-                    <p class="event-details">
-                        📍 Queen's University, Kingston, ON<br>
-                        📅 November 22-23, 10:30 AM<br>
-                        ⏱️ 5 Rounds (Swiss), 30+30<br>
-                        🎯 Qualifier for 2026 CUCC Teams
-                    </p>
-                    <a href="/CUCCQualifiers2025" class="event-button">Learn more + register</a>
-                </div>
-
-                <div class="Events-bar" onclick="navigateTo('/RapidOpen2025')" style="background-image: url('images/stauffer.jpg')">
-                    <h3>Queen's Chess Rapid Open</h3>
-                    <p class="event-details">
-                        📍 Queen's University, Kingston, ON<br>
-                        📅 October 25, 10:00 AM<br>
-                        ⏱️ 5 rounds, 10+5<br>
-                        💵 Early bird ends Oct 18
-                    </p>
-                    <a href="/RapidOpen2025" class="event-button">Learn more + view results</a>
-                </div>
-
-                <div class="Events-bar" onclick="navigateTo('/QCC2025')" style="background-image: url('images/stauffer.jpg')">
-                    <h3>Queen's Chess Championship</h3>
-                    <p class="event-details">
-                        📍 Queen's University, Kingston, ON<br>
-                        📅 March 2nd-3rd <br>
-                        📌 CFC rated Tournament<br>
-                        🎮 Personal Competition
-                    </p>
-                    <a href="/QCC2025" class="event-button">Learn more + view results</a>
-                </div>
-
-                <div class="Events-bar" onclick="navigateTo('/CUCC2025')" style="background-image: url('images/CUCC2024image.jpg')">
-                    <h3>Canadian University Chess Championship</h3>
-                    <p class="event-details">
-                        📍 Queen's University, Kingston, ON<br>
-                        📅 January 24-26, 2025<br>
-                        📌 CFC rated Tournament<br>
-                        🏆 CFC rated Team Competition
-                    </p>
-                    <a href="CUCC2025" class="event-button">Learn more + view results</a>
-                </div>
-            
-                <div class="Events-bar" onclick="navigateTo('/blitzT')" style="background-image: url('images/stauffer.jpg')">
-                    <h3>Winter Blitz Tournament</h3>
-                    <p class="event-details">
-                        📍 Queen's University, Kingston, ON<br>
-                        📅 February 8, 2025<br>
-                        📌 Ratings based on Chess.com or Lichess.org accounts<br>
-                        ⚡ 5-minute games with 3-second increments
-                    </p>
-                    <a href="/blitzT" class="event-button">Learn more + view results</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="Events-container">
-            <h2>2024</h2>
-            <hr>
-            <div class="Events-bar-section">
-                <div class="Events-bar" onclick="navigateTo('/cucc2024')" style="background-image: url('images/CUCC2024image.jpg')">
-                    <h3>Canadian University Chess Championship</h3>
-                    <p class="event-details">
-                        📍 Queen's University, Kingston, ON<br>
-                        📅 January 24-26, 2025<br>
-                        📌 CFC rated Tournament<br>
-                        🏆 CFC rated Team Competition
-                    </p>
-                    <a href="/CUCC2024" class="event-button">Learn more + view results</a>
-                </div>
-
-                <div class="Events-bar" onclick="navigateTo('/qcc2024')" style="background-image: url('images/stauffer.jpg')">
-                    <h3>Queen's Chess Championship</h3>
-                    <p class="event-details">
-                        📍 Queen's University, Kingston, ON<br>
-                        📅 March 2nd-3rd <br>
-                        📌 CFC rated Tournament<br>
-                        🎮 Personal Competition
-                    </p>
-                    <a href="/QCC2024" class="event-button">Learn more + view results</a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <script>
-        function navigateTo(page) {
-            window.location.href = page;
-        }
-    </script>
-
-    <br><br>
-    <%- include('footer.ejs'); %>
-
+<head><%- include('head', { title: 'Events & club stories', description: 'Explore Queen’s Chess Club tournaments, university championships, results, and club stories.' }) %></head>
+<body class="site-page">
+<%- include('header') %>
+<main id="main-content">
+  <section class="site-shell page-intro"><p class="eyebrow">Over the board. Around the club.</p><h1>Every game has a story.</h1><p>Tournaments, team trips, and a few unforgettable moves.<br>Explore what we’ve been playing.</p></section>
+  <section class="site-shell events-meeting"><div><span class="eyebrow">Always a good place to start</span><h2>Weekly club night</h2><p><%= club.meeting.day %> · <%= club.meeting.time %> · <%= club.meeting.location %></p></div><a class="button button-primary" href="/#visit">Come play <span aria-hidden="true">↗</span></a></section>
+  <section class="site-shell archive-section" aria-labelledby="archive-title">
+    <div class="section-heading"><div><p class="eyebrow">The archive</p><h2 id="archive-title">Past events & highlights</h2></div><div class="event-filters" aria-label="Filter events by year" hidden><% ['all', '2026', '2025', '2024'].forEach((year, index) => { %><button type="button" data-filter-year="<%= year %>" aria-pressed="<%= index === 0 %>"><%= year === 'all' ? 'All years' : year %></button><% }) %></div></div>
+    <p class="archive-note">Looking for the next tournament? Watch <a href="<%= club.discord %>">Discord</a> and <a href="<%= club.instagram %>">Instagram</a> for new announcements.</p>
+    <p class="sr-only" data-filter-status aria-live="polite" aria-atomic="true"></p>
+    <div class="event-grid"><% events.forEach(event => { %><%- include('event-card', { event }) %><% }) %></div>
+  </section>
+  <%- include('join-banner') %>
+</main>
+<%- include('footer') %>
 </body>
 </html>

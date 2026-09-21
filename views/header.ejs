@@ -1,14 +1,17 @@
-<header>
-    <div class="header-container">
-        <nav>
-            <ul>
-                <a href="/" class="logo"><img src="images/logo.jpg" width="60" height="60"></a>
-                <div class="links">
-                    <li><a href="/" class="tags">Home</a></li>
-                    <li><a href="/eventsPage" class="tags">Events</a></li>
-                    <li><a href="/execs" class="tags">Execs</a></li>
-                </div>
-            </ul>
-        </nav>
-    </div>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-brand" href="/" aria-label="Queen’s Chess Club home">
+      <img src="/images/logo.jpg" alt="" width="48" height="48">
+      <span>Queen’s <strong>Chess Club</strong></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden>Menu <span aria-hidden="true">☰</span></button>
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+      <a href="/"<% if (currentPath === '/') { %> aria-current="page"<% } %>>Home</a>
+      <a href="/eventsPage"<% if (currentPath === '/eventsPage') { %> aria-current="page"<% } %>>Events</a>
+      <a href="/coaching"<% if (currentPath === '/coaching') { %> aria-current="page"<% } %>>Learn chess</a>
+      <a href="/execs"<% if (currentPath === '/execs') { %> aria-current="page"<% } %>>Our team</a>
+      <a class="nav-join" href="/#visit">Come play <span aria-hidden="true">↗</span></a>
+    </nav>
+  </div>
 </header>
