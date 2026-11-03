@@ -5,7 +5,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const _ = require("lodash");
-const { club, events } = require('./data/club');
+const { club, events, qualifiers } = require('./data/club');
 const { meetingCalendar } = require('./lib/meeting-calendar');
 const http = require("http");
 const { Server } = require("socket.io");
@@ -24,6 +24,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 app.locals.club = club;
 app.locals.events = events;
+app.locals.qualifiers = qualifiers;
 app.use((req, res, next) => {
   res.locals.currentPath = req.path.replace(/\/$/, '') || '/';
   next();
@@ -153,6 +154,10 @@ app.get("/QCC2025", function(req, res){
 
 app.get("/RapidOpen2025", function(req, res){
   res.render("RapidOpen2025");
+});
+
+app.get('/CUCCQualifiers2026', (req, res) => {
+  res.render('CUCCQualifiers2026');
 });
 
 app.get("/CUCCQualifiers2025", function(req, res){

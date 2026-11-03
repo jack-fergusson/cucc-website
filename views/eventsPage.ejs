@@ -5,6 +5,7 @@
 <%- include('header') %>
 <main id="main-content">
   <section class="site-shell page-intro"><p class="eyebrow">Over the board. Around the club.</p><h1>Every game has a story.</h1><p>Tournaments, team trips, and a few unforgettable moves.<br>Explore what we’ve been playing.</p></section>
+  <%- include('qualifier-feature') %>
   <section class="site-shell events-meeting"><div><span class="eyebrow">Always a good place to start</span><h2>Weekly club night</h2><p><%= club.meeting.day %> · <%= club.meeting.time %> · <%= club.meeting.location %></p></div><a class="button button-primary" href="/#visit">Come play <span aria-hidden="true">↗</span></a></section>
   <section class="site-shell archive-section" aria-labelledby="archive-title">
     <div class="section-heading"><div><p class="eyebrow">The archive</p><h2 id="archive-title">Past events & highlights</h2></div><div class="event-filters" aria-label="Filter events by year" hidden><% ['all', '2026', '2025', '2024'].forEach((year, index) => { %><button type="button" data-filter-year="<%= year %>" aria-pressed="<%= index === 0 %>"><%= year === 'all' ? 'All years' : year %></button><% }) %></div></div>

@@ -2,13 +2,13 @@
 <header class="site-header">
   <div class="site-header__inner">
     <a class="site-brand" href="/" aria-label="Queen’s Chess Club home">
-      <img src="/images/logo.jpg" alt="" width="48" height="48">
+      <img src="/images/queens-chess-logo.png" alt="" width="48" height="48">
       <span>Queen’s <strong>Chess Club</strong></span>
     </a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden>Menu <span aria-hidden="true">☰</span></button>
     <nav class="site-nav" id="site-nav" aria-label="Main navigation">
       <a href="/"<% if (currentPath === '/') { %> aria-current="page"<% } %>>Home</a>
-      <a href="/eventsPage"<% if (currentPath === '/eventsPage') { %> aria-current="page"<% } %>>Events</a>
+      <a href="/eventsPage"<% if (currentPath === '/eventsPage' || currentPath === '/CUCCQualifiers2026') { %> aria-current="page"<% } %>>Events</a>
       <a href="/coaching"<% if (currentPath === '/coaching') { %> aria-current="page"<% } %>>Learn chess</a>
       <a href="/execs"<% if (currentPath === '/execs') { %> aria-current="page"<% } %>>Our team</a>
       <a class="nav-join" href="/#visit">Come play <span aria-hidden="true">↗</span></a>

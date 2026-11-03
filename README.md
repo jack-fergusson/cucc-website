@@ -14,6 +14,7 @@ Open <http://localhost:3000>. Set `PORT` to use a different port. The public web
 ## Update club information
 
 - **Meetings and social links:** `data/club.js` is the shared source for the homepage, events, coaching, footer, and calendar. Update the display labels and numeric calendar fields together if the schedule changes, then update the calendar tests.
+- **CUCC qualifiers:** `qualifiers` in `data/club.js` supplies the homepage and events announcement and `/CUCCQualifiers2026` details page. Update or retire the announcement after November 7–8, 2026.
 - **Past events:** edit the newest-first `events` list in `data/club.js`. These cards are explicitly an archive; publish future tournament announcements separately rather than marking an archived event as upcoming.
 - **Team:** `views/exec.ejs` contains the published 2025–2026 roster. Update the year together with the bios when a new roster is available.
 - **Coaching:** `views/coaching.ejs` describes past coaching topics and directs visitors to Discord for future dates.
