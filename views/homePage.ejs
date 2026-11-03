@@ -4,7 +4,7 @@
 <body class="site-page">
 <%- include('header') %>
 <main id="main-content">
-  <section class="home-hero site-shell" aria-labelledby="hero-title">
+  <div class="home-hero-band"><section class="home-hero site-shell" aria-labelledby="hero-title">
     <div class="hero-copy">
       <p class="eyebrow"><span class="tiny-square"></span> Queen’s University · Kingston, ON</p>
       <h1 id="hero-title">Your next move<br>starts <em>here.</em></h1>
@@ -17,7 +17,8 @@
       <div class="hero-stamp"><span>ALL LEVELS</span><strong aria-hidden="true">♞</strong><span>ONE COMMUNITY</span></div>
       <div class="checker-strip" aria-hidden="true"></div>
     </div>
-  </section>
+  </section></div>
+  <%- include('qualifier-feature') %>
   <section class="meeting-band" id="visit" aria-labelledby="meeting-title">
     <div class="site-shell meeting-grid">
       <div><p class="eyebrow">Your weekly chess fix</p><h2 id="meeting-title">See you Thursday.</h2><p>Drop by for a game. Stay for the company.</p></div>
@@ -51,7 +52,7 @@
       <details><summary>Do I need to know how to play?</summary><p>No experience needed. Come along, introduce yourself, and let us know you’re new. Our community welcomes players who are just learning the rules.</p></details>
       <details><summary>Who can join the club?</summary><p>Students, faculty, and community members are all welcome. You don’t need a rating or tournament experience to enjoy a game with us.</p></details>
       <details><summary>How do I come to a weekly meetup?</summary><p>Drop by <%= club.meeting.location %> on <%= club.meeting.day %> between <%= club.meeting.time %>. Check Discord before heading over for any schedule changes.</p></details>
-      <details><summary>How can I hear about tournaments?</summary><p>Join our <a href="<%= club.discord %>">Discord</a> or follow us on <a href="<%= club.instagram %>">Instagram</a> for announcements. Our <a href="/eventsPage">events archive</a> gives you a feel for what we play.</p></details>
+      <details><summary>How can I hear about tournaments?</summary><p>Join our <a href="<%= club.discord %>">Discord</a> or follow us on <a href="<%= club.instagram %>">Instagram</a> for announcements. See our <a href="/eventsPage">events page</a> for upcoming tournaments and past highlights.</p></details>
     </div>
   </section>
   <%- include('join-banner') %>

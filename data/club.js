@@ -12,6 +12,19 @@ const club = {
   email: 'queenschess@outlook.com',
 };
 
+// Current qualifier announcement; kept separate from the event archive.
+const qualifiers = {
+  title: 'CUCC Qualifiers 2026',
+  date: 'November 7–8, 2026',
+  start: '10:30 AM',
+  location: 'Stauffer Library, Room 014',
+  format: '5 rounds · Swiss',
+  timeControl: '30+30',
+  fee: '$20',
+  registration: 'https://forms.gle/WUkzYzC6cazhx16n6',
+  href: '/CUCCQualifiers2026',
+};
+
 // Past events, newest first. Original detail pages remain available as an archive.
 const events = [
   { year: '2026', date: 'March 28, 2026', title: 'Queen’s Bughouse Championship', type: 'Tournament', image: 'optimized/bughouse.webp', href: '/Bughouse2026', description: 'Two players. Two boards. A whole new way to play. Our team bughouse tournament at Kingston Hall.' },
@@ -25,4 +38,4 @@ const events = [
   { year: '2024', date: 'March 2–3, 2024', title: 'Queen’s Chess Championship', type: 'Tournament', image: 'optimized/chess.webp', href: '/QCC2024', description: 'Look back at the 2024 edition of the Queen’s Chess Championship.' },
   { year: '2024', date: 'January 26–28, 2024', title: 'Canadian University Chess Championship', type: 'Team event', image: 'optimized/cucc-2024.webp', href: '/CUCC2024', description: 'The 2024 university team championship, hosted at Queen’s.' },
 ];
-module.exports = { club, events };
+module.exports = { club, events, qualifiers };
